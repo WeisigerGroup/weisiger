@@ -13,7 +13,7 @@ ReactRuntime.registerComponent(BrandedButton, {
   label: 'Branded Button',
   props: {
     linkText: TextInput({ label: 'Text', defaultValue: 'Enter text...' }),
-    link: Link(label: 'On click'),
+    link: Link({label: 'On click'}),
     backgroundColor: Color({ label: 'Color', defaultValue: 'black' }),
     color: Color({ label: 'Text color', defaultValue: 'white' }),
     hoverColor: Color({ label: 'Hover color', defaultValue: 'white' }),
