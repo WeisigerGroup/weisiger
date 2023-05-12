@@ -8,7 +8,7 @@ export default function BrandedButton({
   hoverColor,
   className,
 }) {
-  const { href, target, onClick } = link ?? { href: '#' };
+  const { href, target, onClick, } = link ?? { href: '#' };
   const [isHovered, setIsHovered] = useState(false);
 
   const buttonStyle = {
