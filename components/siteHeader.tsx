@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 const navbarStyle = (scrolled: boolean): CSSProperties => ({
   position: 'fixed',
@@ -68,13 +67,12 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   return (
     <nav className={className} style={navbarStyle(scrolled)}>
       <div style={containerStyle(scrolled)}>
-        <a href={imgLink}>
-          <Image style={logoStyle(scrolled)} src={img} alt={imgAlt} />
-        </a>
+        <a href={imgLink}></a>
+        <img style={logoStyle(scrolled)} src={img} alt={imgAlt} />
         <div style={linksStyle}>
           {links?.map((link, i) => (
             <li key={i} style={linkListItemStyle}>
-              <a {...link.url}>{link.text}</a>
+              <a {...link.link}>{link.text}</a>
             </li>
           ))}
         </div>

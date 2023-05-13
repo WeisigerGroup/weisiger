@@ -1,29 +1,8 @@
 import React, { useState } from 'react';
 
-interface Link {
-  href?: string;
-  target?: string;
-  onClick?: () => void;
-}
-
-interface BrandedButtonProps {
-  link?: Link;
-  linkText?: string;
-  backgroundColor?: string;
-  color?: string;
-  hoverColor?: string;
-  className?: string;
-}
-
-export default function BrandedButton({
-  link,
-  linkText,
-  backgroundColor,
-  color,
-  hoverColor,
-  className,
-}: BrandedButtonProps) {
-  const { href, target, onClick } = link ?? { href: '#' };
+export default function BrandedButton({link, linkText, backgroundColor, color, hoverColor, className
+}) {
+  const { href, target, onClick, } = link ?? { href: '#' };
   const [isHovered, setIsHovered] = useState(false);
 
   const buttonStyle = {
@@ -41,7 +20,7 @@ export default function BrandedButton({
     <button
       style={buttonStyle}
       className={className}
-      ref={href}
+      href={href}
       target={target}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
