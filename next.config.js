@@ -5,6 +5,9 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
+
+module.exports = withMakeswift(nextConfig)
+
 module.exports = {
   typescript: {
     // !! WARN !!
@@ -14,5 +17,3 @@ module.exports = {
     ignoreBuildErrors: true,
   },
 };
-
-module.exports = withMakeswift(nextConfig)
