@@ -7,6 +7,7 @@ type Props = {
   color?:string
   className?:string
 }
+
 export default function BrandedButton({link, linkText, backgroundColor, color, hoverColor, className
 }:Props) {
   const [isHovered, setIsHovered] = useState(false);

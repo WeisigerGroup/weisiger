@@ -1,6 +1,6 @@
 import { Style, Link, TextInput, Color, Select, Shape, Image, List } from '@makeswift/runtime/controls'
 import { ReactRuntime } from '@makeswift/runtime/react'
-import  BrandedButton  from '../../components/BrandedButton'
+import  BrandedButton  from '../../components/Button'
 import { MakeswiftComponentType } from '@makeswift/runtime/components'
 import Navbar from '../../components/NavBar'
 
