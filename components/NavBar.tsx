@@ -24,8 +24,9 @@ const containerStyle = (scrolled: boolean): CSSProperties => ({
   width: '100%',
 });
 
-const logoStyle = (scrolled) => ({
+const logoStyle = (scrolled: boolean) => ({
   maxHeight: scrolled ? '120px' : '240px',
+  maxWidth: scrolled ? '120px' : '240px',
   transition: 'all 0.4s',
 });
 
@@ -41,8 +42,17 @@ const linkListItemStyle = {
   padding: '0 10px 10px 10px'
 };
 
+type Props = {
+  img?: {url:string}
+  imgAlt?: string
+  imgLink?: {href:string}
+  links?: {text?:string;link?:{href:string}}[]
+  className?:string
+  color?:string
+}
 
-export default function Navbar({ img, imgAlt, imgLink, links, className, color }) {
+// ts-ignore-next-line 
+export default function Navbar({ img, imgAlt, imgLink, links, className, color }:Props) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -68,12 +78,12 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   return (
     <nav className={className} style={navbarStyle(scrolled)}>
       <div style={containerStyle(scrolled)}>
-        <a href={imgLink}></a>
-        <Image style={logoStyle(scrolled)} src={img} alt={imgAlt} />
-        <div style={linksStyle}>
+        <a {...imgLink}></a>
+        {img&&imgAlt&&<Image style={logoStyle(scrolled)} src={img.url} width={240} height={240} alt={imgAlt} />}
+        <div style={linksStyle as CSSProperties}>
           {links?.map((link, i) => (
             <li key={i} style={linkListItemStyle}>
-              <a {...link.url}>{link.text}</a>
+              <a {...link.link}>{link.text}</a>
             </li>
           ))}
         </div>

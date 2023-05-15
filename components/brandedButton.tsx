@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
-
+import { useState } from 'react';
+type Props = {
+  link?:{href:string}
+  linkText?:string
+  backgroundColor?:string
+  hoverColor?:string
+  color?:string
+  className?:string
+}
 export default function BrandedButton({link, linkText, backgroundColor, color, hoverColor, className
-}) {
-  const { href, target, onClick, } = link ?? { href: '#' };
+}:Props) {
   const [isHovered, setIsHovered] = useState(false);
 
   const buttonStyle = {
@@ -16,13 +22,12 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
     padding: '10px'
   };
 
+
   return (
     <button
+      {...link}
       style={buttonStyle}
       className={className}
-      href={href}
-      target={target}
-      onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

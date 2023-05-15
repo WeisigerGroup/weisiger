@@ -1,8 +1,8 @@
 import { Style, Link, TextInput, Color, Select, Shape, Image, List } from '@makeswift/runtime/controls'
 import { ReactRuntime } from '@makeswift/runtime/react'
-import  BrandedButton  from '../../components/brandedButton'
+import  BrandedButton  from '../../components/BrandedButton'
 import { MakeswiftComponentType } from '@makeswift/runtime/components'
-import Navbar from '../../components/siteHeader'
+import Navbar from '../../components/NavBar'
 
 // Register your components here!
 /*
@@ -27,7 +27,7 @@ ReactRuntime.registerComponent(Navbar, {
   type: MakeswiftComponentType.Navigation,
   label: 'Navigation',
   props: {
-    img: Image(),
+    img: Image({format: Image.Format.WithDimensions}),
     imgAlt: TextInput({ label: 'Image alt text', defaultValue: '' }),
     imgLink: Link({label: 'Logo link'}),
     links: List({
