@@ -33,15 +33,14 @@ type Link = {
     };
   
     const hamburgerStyle: CSSProperties = {
-        position: 'absolute',
-        top: '50%',
-        left: scrolled || !isOpen ? 'auto' : '50%', 
-        right: scrolled || !isOpen ? '20px' : 'auto', 
-        transform: scrolled || !isOpen ? 'none' : 'translate(-50%, -50%)', 
-        justifyContent: 'center',
+        display: 'flex',
+        justifyContent: scrolled ? 'flex-end' : 'center',
         alignContent:'center',
         cursor: 'pointer',
-        padding: '0'
+        padding: '0',
+        position: scrolled ? 'static' : 'absolute',
+        top: scrolled ? undefined : 'calc(100% + 10px)',
+        right: scrolled ? '0' : undefined,
       };
 
   return (

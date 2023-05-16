@@ -52,7 +52,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   const containerStyle: CSSProperties = {
     maxWidth: '1100px',
     display: 'flex',
-    flexDirection: scrolled || isMobile ? 'row' : 'column',
+    flexDirection: isMobile ? 'column' : (scrolled ? 'row' : 'column'),
     alignItems: 'center',
     justifyContent: scrolled || isMobile ? 'space-between' : 'center',
     width: '100%',
@@ -73,7 +73,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
 
   const linkListItemStyle: CSSProperties = {
     listStyle: 'none',
-    padding: '0 10px 20px 10px'
+    padding: '0 10px 30px 10px'
   };
 
   const linkStyle: CSSProperties = {
