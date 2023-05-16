@@ -15,6 +15,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(-1);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,6 +82,10 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     color: "#63666a",
     textDecoration: 'none'
   };
+  const linksHoverStyle: CSSProperties = {
+    ...linksStyle,
+    color: '#6BA4B8'
+  };
 
   return (
     <nav className={className} style={navbarStyle}>
@@ -93,7 +98,10 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
           <div style={linksStyle as CSSProperties} color={color}>
             {links?.map((link, i) => (
               <li key={i} style={linkListItemStyle}>
-                {link.link && <a style={linkStyle} {...link.link}>{link.text}</a>}
+                {link.link && <a 
+              style={i === hoveredLink ? linksHoverStyle : linkStyle} 
+              onMouseEnter={() => setHoveredLink(i)}
+              onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
               </li>
             ))}
           </div>

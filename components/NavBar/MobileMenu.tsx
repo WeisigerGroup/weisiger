@@ -15,7 +15,8 @@ type Link = {
   
   export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: MobileMenuProps) {
     const [showLinks, setShowLinks] = useState(false);
-  
+    const [hoveredLink, setHoveredLink] = useState(-1);
+
     const handleMenuClick = () => {
       setShowLinks(!showLinks);
     };
@@ -32,6 +33,11 @@ type Link = {
       color: '#63666a',
       padding:'10px'
     };
+
+    const linksHoverStyle: CSSProperties = {
+        ...linksStyle,
+        color: '#6BA4B8'
+      };
   
     const hamburgerStyle: CSSProperties = {
         display: 'flex',
@@ -60,7 +66,10 @@ type Link = {
       <ul style={linkListStyle}>
         {links?.map((link, i) => (
           <li key={i}>
-            {link.link && <a style={linksStyle} {...link.link}>{link.text}</a>}
+            {link.link && <a 
+              style={i === hoveredLink ? linksHoverStyle : linksStyle} 
+              onMouseEnter={() => setHoveredLink(i)}
+              onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
           </li>
         ))}
       </ul>
