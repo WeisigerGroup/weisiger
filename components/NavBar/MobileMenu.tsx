@@ -1,4 +1,5 @@
 import React, { useState, CSSProperties } from 'react';
+import { Icon } from '@mui/material';
 
 type Link = {
     text?:string;
@@ -47,11 +48,11 @@ type Link = {
       <div style={hamburgerStyle} onClick={handleMenuClick}>
         {/* Conditionally render 'X' or hamburger icon */}
         {showLinks ? (
-          <span>X</span> 
+          <Icon>close_OutLined</Icon> 
         ) : (
           <>
             <div>
-                =
+                <Icon>dehazed_OutLined</Icon>
             </div>
           </>
         )}
