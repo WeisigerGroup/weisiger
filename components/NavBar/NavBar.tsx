@@ -56,7 +56,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     alignItems: 'center',
     justifyContent: scrolled || isMobile ? 'space-between' : 'center',
     width: '100%',
-    position: 'relative' // added this to position mobile menu relatively to this container
+    position: 'relative'
   };
 
   const logoStyle: CSSProperties = {

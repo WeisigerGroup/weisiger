@@ -9,7 +9,7 @@ type Link = {
     links?: Link[];
     isOpen: boolean;
     toggleMenu: (open: boolean) => void;
-    scrolled: boolean; // added this new prop
+    scrolled: boolean;
   };
   
   export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: MobileMenuProps) {
