@@ -25,6 +25,11 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
     transition: 'max-height 0.5s ease-in-out',
   };
 
+  const linksStyle: CSSProperties = {
+    textDecoration: 'none',
+    color: '#63666a'
+  };
+
   const hamburgerStyle: CSSProperties = {
     justifyContent: 'center',
     cursor: 'pointer',
@@ -36,18 +41,17 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
       <div style={hamburgerStyle} onClick={handleMenuClick}>
         {/* Conditionally render 'X' or hamburger icon */}
         {showLinks ? (
-          <span>X</span> // Replace this with an actual 'X' icon if needed
+          <span>X</span> 
         ) : (
           <>
-            <div>-</div>
-            <div>-</div>
+            <div>-<br/>-</div>
           </>
         )}
       </div>
       <ul style={linkListStyle}>
         {links?.map((link, i) => (
           <li key={i}>
-            {link.link && <a {...link.link}>{link.text}</a>}
+            {link.link && <a style={linksStyle} {...link.link}>{link.text}</a>}
           </li>
         ))}
       </ul>
