@@ -40,7 +40,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     top: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
     display: 'flex',
     justifyContent: 'center',
     padding: scrolled ? '10px 0' : '0',
@@ -58,23 +58,26 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     width: '100%',
   };
 
-  const logoStyle = {
+  const logoStyle: CSSProperties = {
     maxHeight: scrolled ? '120px' : '240px',
     maxWidth: scrolled ? '120px' : '240px',
     transition: 'all 0.4s',
   };
 
-  const linksStyle = {
+  const linksStyle: CSSProperties = {
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
-    style: 'none'
+    alignItems: 'center'
   };
 
-  const linkListItemStyle = {
+  const linkListItemStyle: CSSProperties = {
     listStyle: 'none',
+    padding: '0 10px 20px 10px'
+  };
+
+  const linkStyle: CSSProperties = {
     color: "#63666a",
-    padding: '0 10px 10px 10px'
+    textDecoration: 'none'
   };
 
   return (
@@ -87,7 +90,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
           <div style={linksStyle as CSSProperties} color={color}>
             {links?.map((link, i) => (
               <li key={i} style={linkListItemStyle}>
-                {link.link && <a {...link.link}>{link.text}</a>}
+                {link.link && <a style={linkStyle} {...link.link}>{link.text}</a>}
               </li>
             ))}
           </div>

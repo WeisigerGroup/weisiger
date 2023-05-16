@@ -26,7 +26,7 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
   };
 
   const hamburgerStyle: CSSProperties = {
-    alignContent: 'center',
+    justifyContent: 'center',
     cursor: 'pointer',
     padding: '0'
   };
