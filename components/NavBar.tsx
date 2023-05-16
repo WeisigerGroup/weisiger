@@ -75,11 +75,11 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   }, []);
 
   return (
-    <nav className={className} style={navbarStyle(scrolled)}>
+    <nav className={className} style={navbarStyle(scrolled)} color={color}>
       <div style={containerStyle(scrolled)}>
         <a {...imgLink}></a>
         {img&&imgAlt&&<Image style={logoStyle(scrolled)} src={img.url} alt={imgAlt} />}
-        <div style={linksStyle as CSSProperties} color={color}>
+        <div style={linksStyle as CSSProperties}>
           {links?.map((link, i) => (
             <li key={i} style={linkListItemStyle}>
               <a {...link.link}>{link.text}</a>
