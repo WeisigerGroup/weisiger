@@ -19,6 +19,7 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
   };
 
   const linkListStyle: CSSProperties = {
+    listStyle: 'none',
     maxHeight: showLinks ? '100vh' : '0',
     overflow: 'hidden',
     transition: 'max-height 0.5s ease-in-out',
@@ -31,10 +32,14 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
   return (
     <div>
       <div style={hamburgerStyle} onClick={handleMenuClick}>
-        {/* This is a simple hamburger icon. Replace it with an actual icon if needed. */}
-        <div>-</div>
-        <div>-</div>
-        <div>-</div>
+        {/* Conditionally render 'X' or hamburger icon */}
+        {showLinks ? (
+          <span>X</span> // Replace this with an actual 'X' icon if needed
+        ) : (
+          <>
+            <div>=</div>
+          </>
+        )}
       </div>
       <ul style={linkListStyle}>
         {links?.map((link, i) => (
