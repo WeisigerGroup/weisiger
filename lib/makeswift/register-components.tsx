@@ -2,7 +2,7 @@ import { Style, Link, TextInput, Color, Select, Shape, Image, List } from '@make
 import { ReactRuntime } from '@makeswift/runtime/react'
 import  BrandedButton  from '../../components/Button'
 import { MakeswiftComponentType } from '@makeswift/runtime/components'
-import Navbar from '../../components/NavBar'
+import Navbar from '../../components/NavBar/NavBar'
 
 // Register your components here!
 /*
