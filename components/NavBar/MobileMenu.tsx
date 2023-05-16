@@ -32,14 +32,14 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
     <div>
       <div style={hamburgerStyle} onClick={handleMenuClick}>
         {/* This is a simple hamburger icon. Replace it with an actual icon if needed. */}
-        <div></div>
-        <div></div>
-        <div></div>
+        <div>-</div>
+        <div>-</div>
+        <div>-</div>
       </div>
       <ul style={linkListStyle}>
         {links?.map((link, i) => (
           <li key={i}>
-            {link && <a {...link}>{link.text}</a>}
+            {link.link && <a {...link.link}>{link.text}</a>}
           </li>
         ))}
       </ul>

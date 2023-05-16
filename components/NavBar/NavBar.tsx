@@ -87,7 +87,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
           <div style={linksStyle as CSSProperties} color={color}>
             {links?.map((link, i) => (
               <li key={i} style={linkListItemStyle}>
-                {link && <a {...link}>{link.text}</a>}
+                {link.link && <a {...link.link}>{link.text}</a>}
               </li>
             ))}
           </div>
