@@ -31,7 +31,7 @@ type Link = {
     const linksStyle: CSSProperties = {
       textDecoration: 'none',
       color: '#63666a',
-      padding:'10px',
+      padding:'5px 5px 5px 5px',
       cursor: 'pointer'
     };
 

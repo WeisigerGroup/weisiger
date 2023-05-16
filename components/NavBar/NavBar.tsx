@@ -84,7 +84,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     textDecoration: 'none'
   };
   const linksHoverStyle: CSSProperties = {
-    ...linksStyle,
+    ...linkStyle,
     color: '#6BA4B8'
   };
 
