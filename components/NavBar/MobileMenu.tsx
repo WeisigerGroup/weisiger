@@ -27,11 +27,13 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
 
   const linksStyle: CSSProperties = {
     textDecoration: 'none',
-    color: '#63666a'
+    color: '#63666a',
+    padding:'10px'
   };
 
   const hamburgerStyle: CSSProperties = {
     justifyContent: 'center',
+    alignContent:'center',
     cursor: 'pointer',
     padding: '0'
   };
@@ -44,7 +46,10 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
           <span>X</span> 
         ) : (
           <>
-            <div>-<br/>-</div>
+            <div>-
+                -
+                -
+            </div>
           </>
         )}
       </div>
