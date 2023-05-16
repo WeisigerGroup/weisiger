@@ -79,6 +79,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   };
 
   const linkStyle: CSSProperties = {
+    cursor: 'pointer',
     color: "#63666a",
     textDecoration: 'none'
   };
