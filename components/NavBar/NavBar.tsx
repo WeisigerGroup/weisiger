@@ -41,6 +41,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     left: 0,
     right: 0,
     backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    boxShadow: '0px 1px 5px',
     display: 'flex',
     justifyContent: 'center',
     padding: scrolled ? '10px 0' : '0',

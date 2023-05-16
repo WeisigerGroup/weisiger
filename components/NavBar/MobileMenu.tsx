@@ -48,11 +48,11 @@ type Link = {
       <div style={hamburgerStyle} onClick={handleMenuClick}>
         {/* Conditionally render 'X' or hamburger icon */}
         {showLinks ? (
-          <Icon>close_OutLined</Icon> 
+          <Icon>close_outlined</Icon> 
         ) : (
           <>
             <div>
-                <Icon>dehazed_OutLined</Icon>
+                <Icon>dehazed_outlined</Icon>
             </div>
           </>
         )}
