@@ -38,7 +38,7 @@ type Link = {
         cursor: 'pointer',
         padding: '0',
         position: scrolled ? 'static' : 'absolute',
-        top: scrolled ? undefined : 'calc(100% + 10px)',
+        // top: scrolled ? undefined : 'calc(100% + 10px)',
         right: scrolled ? '0' : undefined,
       };
 
