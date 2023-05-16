@@ -39,6 +39,7 @@ const linksStyle = {
 
 const linkListItemStyle = {
   listStyle: 'none',
+  color: "63666a",
   padding: '0 10px 10px 10px'
 };
 
@@ -75,11 +76,11 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   }, []);
 
   return (
-    <nav className={className} style={navbarStyle(scrolled)} color={color}>
+    <nav className={className} style={navbarStyle(scrolled)}>
       <div style={containerStyle(scrolled)}>
         <a {...imgLink}></a>
         {img&&imgAlt&&<Image style={logoStyle(scrolled)} src={img.url} alt={imgAlt} />}
-        <div style={linksStyle as CSSProperties}>
+        <div style={linksStyle as CSSProperties} color={color}>
           {links?.map((link, i) => (
             <li key={i} style={linkListItemStyle}>
               <a {...link.link}>{link.text}</a>
