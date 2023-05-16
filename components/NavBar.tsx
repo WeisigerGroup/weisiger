@@ -6,7 +6,7 @@ const navbarStyle = (scrolled: boolean): CSSProperties => ({
   top: 0,
   left: 0,
   right: 0,
-  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  backgroundColor: 'rgba(255, 255, 255, 0.9)',
   display: 'flex',
   justifyContent: 'center',
   padding: scrolled ? '10px 0' : '0',
@@ -51,7 +51,6 @@ type Props = {
   color?:string
 }
 
-// ts-ignore-next-line 
 export default function Navbar({ img, imgAlt, imgLink, links, className, color }:Props) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -79,8 +78,8 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     <nav className={className} style={navbarStyle(scrolled)}>
       <div style={containerStyle(scrolled)}>
         <a {...imgLink}></a>
-        {img&&imgAlt&&<Image style={logoStyle(scrolled)} src={img.url} width={240} height={240} alt={imgAlt} />}
-        <div style={linksStyle as CSSProperties}>
+        {img&&imgAlt&&<Image style={logoStyle(scrolled)} src={img.url} alt={imgAlt} />}
+        <div style={linksStyle as CSSProperties} color={color}>
           {links?.map((link, i) => (
             <li key={i} style={linkListItemStyle}>
               <a {...link.link}>{link.text}</a>
