@@ -84,8 +84,9 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   return (
     <nav className={className} style={navbarStyle}>
       <div style={containerStyle}>
-        {imgLink && <a {...imgLink}></a>}
+        {imgLink && <a {...imgLink}>
         {img && imgAlt && <Image style={logoStyle} src={img.url} alt={imgAlt} />}
+        </a>}
         {isMobile ? 
           <MobileMenu links={links} isOpen={mobileMenuOpen} toggleMenu={setMobileMenuOpen} scrolled={scrolled} /> :
           <div style={linksStyle as CSSProperties} color={color}>
