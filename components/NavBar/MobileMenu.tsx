@@ -26,7 +26,9 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
   };
 
   const hamburgerStyle: CSSProperties = {
+    alignContent: 'center',
     cursor: 'pointer',
+    padding: '0'
   };
 
   return (
@@ -37,7 +39,8 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
           <span>X</span> // Replace this with an actual 'X' icon if needed
         ) : (
           <>
-            <div>=</div>
+            <div>-</div>
+            <div>-</div>
           </>
         )}
       </div>

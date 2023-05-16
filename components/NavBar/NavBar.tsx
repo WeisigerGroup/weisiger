@@ -73,7 +73,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
 
   const linkListItemStyle = {
     listStyle: 'none',
-    color: "63666a",
+    color: "#63666a",
     padding: '0 10px 10px 10px'
   };
 
