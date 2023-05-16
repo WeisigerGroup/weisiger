@@ -35,7 +35,6 @@ type Link = {
     const hamburgerStyle: CSSProperties = {
         display: 'flex',
         justifyContent: scrolled ? 'flex-end' : 'center',
-        alignContent:'center',
         cursor: 'pointer',
         padding: '0',
         position: scrolled ? 'static' : 'absolute',
