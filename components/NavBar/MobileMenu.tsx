@@ -1,42 +1,48 @@
 import React, { useState, CSSProperties } from 'react';
 
 type Link = {
-  text?:string;
-  link?:{href:string}
-};
-
-type MobileMenuProps = {
-  links?: Link[];
-  isOpen: boolean;
-  toggleMenu: (open: boolean) => void;
-};
-
-export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProps) {
-  const [showLinks, setShowLinks] = useState(false);
-
-  const handleMenuClick = () => {
-    setShowLinks(!showLinks);
+    text?:string;
+    link?:{href:string}
   };
-
-  const linkListStyle: CSSProperties = {
-    listStyle: 'none',
-    maxHeight: showLinks ? '100vh' : '0',
-    overflow: 'hidden',
-    transition: 'max-height 0.5s ease-in-out',
+  
+  type MobileMenuProps = {
+    links?: Link[];
+    isOpen: boolean;
+    toggleMenu: (open: boolean) => void;
+    scrolled: boolean; // added this new prop
   };
-
-  const linksStyle: CSSProperties = {
-    textDecoration: 'none',
-    color: '#63666a',
-    padding:'10px'
-  };
-
-  const hamburgerStyle: CSSProperties = {
-    justifyContent: 'center',
-    alignContent:'center',
-    cursor: 'pointer',
-    padding: '0'
-  };
+  
+  export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: MobileMenuProps) {
+    const [showLinks, setShowLinks] = useState(false);
+  
+    const handleMenuClick = () => {
+      setShowLinks(!showLinks);
+    };
+  
+    const linkListStyle: CSSProperties = {
+      listStyle: 'none',
+      maxHeight: showLinks ? '100vh' : '0',
+      overflow: 'hidden',
+      transition: 'max-height 0.5s ease-in-out',
+    };
+  
+    const linksStyle: CSSProperties = {
+      textDecoration: 'none',
+      color: '#63666a',
+      padding:'10px'
+    };
+  
+    const hamburgerStyle: CSSProperties = {
+      position: 'absolute', // add this
+      top: '50%', // add this
+      left: scrolled ? 'auto' : '50%', // change this based on scrolled
+      right: scrolled ? '20px' : 'auto', // add this
+      transform: scrolled ? 'none' : 'translate(-50%, -50%)', // add this
+      justifyContent: 'center',
+      alignContent:'center',
+      cursor: 'pointer',
+      padding: '0'
+    };
 
   return (
     <div>
@@ -46,9 +52,8 @@ export default function MobileMenu({ links, isOpen, toggleMenu }: MobileMenuProp
           <span>X</span> 
         ) : (
           <>
-            <div>-
-                -
-                -
+            <div>
+                =
             </div>
           </>
         )}
