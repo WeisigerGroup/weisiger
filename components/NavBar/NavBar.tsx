@@ -52,10 +52,11 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   const containerStyle: CSSProperties = {
     maxWidth: '1100px',
     display: 'flex',
-    flexDirection: scrolled ? 'row' : 'column',
+    flexDirection: scrolled || isMobile ? 'row' : 'column',
     alignItems: 'center',
-    justifyContent: scrolled ? 'space-between' : 'center',
+    justifyContent: scrolled || isMobile ? 'space-between' : 'center',
     width: '100%',
+    position: 'relative' // added this to position mobile menu relatively to this container
   };
 
   const logoStyle: CSSProperties = {

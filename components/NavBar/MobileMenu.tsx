@@ -33,16 +33,16 @@ type Link = {
     };
   
     const hamburgerStyle: CSSProperties = {
-      position: 'absolute', // add this
-      top: '50%', // add this
-      left: scrolled ? 'auto' : '50%', // change this based on scrolled
-      right: scrolled ? '20px' : 'auto', // add this
-      transform: scrolled ? 'none' : 'translate(-50%, -50%)', // add this
-      justifyContent: 'center',
-      alignContent:'center',
-      cursor: 'pointer',
-      padding: '0'
-    };
+        position: 'absolute',
+        top: '50%',
+        left: scrolled || !isOpen ? 'auto' : '50%', 
+        right: scrolled || !isOpen ? '20px' : 'auto', 
+        transform: scrolled || !isOpen ? 'none' : 'translate(-50%, -50%)', 
+        justifyContent: 'center',
+        alignContent:'center',
+        cursor: 'pointer',
+        padding: '0'
+      };
 
   return (
     <div>
