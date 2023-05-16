@@ -1,5 +1,5 @@
 import React, { useState, CSSProperties } from 'react';
-import { Icon } from '@mui/material';
+import  Icon from '@mui/material/Icon';
 
 type Link = {
     text?:string;
