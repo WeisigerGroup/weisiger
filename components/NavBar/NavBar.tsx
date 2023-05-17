@@ -50,11 +50,17 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
 
     // Update styles based on state
     navbarStyle.padding = scrolled ? '10px 0' : '0';
-    containerStyle.flexDirection = (isMobile || !scrolled) ? 'column' : 'row';
-    containerStyle.justifyContent = scrolled || isMobile ? 'space-between' : 'center';
     logoStyle.padding = scrolled ? '10px' : '10px';
     logoStyle.maxHeight = scrolled ? '80px' : '120px';
     logoStyle.maxWidth = scrolled ? '80px' : '120px';
+
+    if (isMobile) {
+      containerStyle.flexDirection = 'column';
+      containerStyle.justifyContent = 'center';
+    } else {
+      containerStyle.flexDirection = scrolled ? 'row' : 'column';
+      containerStyle.justifyContent = scrolled ? 'space-between' : 'center';
+    }
 
 
   return (
