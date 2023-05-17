@@ -1,6 +1,5 @@
 import React, { useState, CSSProperties } from 'react';
-import CloseOutlined from '@mui/icons-material/CloseOutlined';
-import DehazeOutlined from '@mui/icons-material/DehazeOutlined';
+import { CloseOutlined, DehazeOutlined } from '@mui/icons-material';
 
 type Link = {
     text?:string;
@@ -41,36 +40,39 @@ type Link = {
         color: '#6BA4B8'
       };
   
-    const hamburgerStyle: CSSProperties = {
+      const containerStyle: CSSProperties = {
         display: 'flex',
         justifyContent: scrolled ? 'flex-end' : 'center',
+        position: 'relative',  
+      };
+    
+      const hamburgerStyle: CSSProperties = {
         cursor: 'pointer',
         padding: '0',
         position: scrolled ? 'static' : 'absolute',
-        // top: scrolled ? undefined : 'calc(100% + 10px)',
-        right: scrolled ? '0' : undefined,
+        bottom: scrolled ? undefined : '-30px',  
       };
 
-  return (
-    <div>
-      <div style={hamburgerStyle} onClick={handleMenuClick}>
-      {/* Conditionally render 'X' or hamburger icon */}
-      {showLinks ? (
-        <CloseOutlined /> 
-      ) : (
-        <DehazeOutlined />
-      )}
-    </div>
-      <ul style={linkListStyle}>
-        {links?.map((link, i) => (
-          <li key={i}>
-            {link.link && <a 
-              style={i === hoveredLink ? linksHoverStyle : linksStyle} 
-              onMouseEnter={() => setHoveredLink(i)}
-              onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+      return (
+        <div style={containerStyle}>
+          <div style={hamburgerStyle} onClick={handleMenuClick}>
+            {/* Conditionally render 'X' or hamburger icon */}
+            {showLinks ? (
+              <CloseOutlined /> 
+            ) : (
+              <DehazeOutlined />
+            )}
+          </div>
+          <ul style={linkListStyle}>
+            {links?.map((link, i) => (
+              <li key={i}>
+                {link.link && <a 
+                  style={i === hoveredLink ? linksHoverStyle : linksStyle} 
+                  onMouseEnter={() => setHoveredLink(i)}
+                  onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
 }
