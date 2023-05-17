@@ -62,6 +62,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
   };
 
   const logoStyle: CSSProperties = {
+    padding: scrolled? '10px': '10px',
     maxHeight: scrolled ? '80px' : '1200px',
     maxWidth: scrolled ? '80px' : '120px',
     transition: 'all 0.4s',
