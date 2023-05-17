@@ -36,6 +36,9 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
       setIsMobile(window.innerWidth < 768);
     };
 
+    // Call handleResize once when the component mounts
+    handleResize();
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
 
@@ -43,7 +46,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+}, []);
 
   // Update styles based on state
   navbarStyle.padding = scrolled ? '10px 0' : '0';

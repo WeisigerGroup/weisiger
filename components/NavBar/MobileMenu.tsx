@@ -32,7 +32,7 @@ type Link = {
     // Update styles based on state
     containerStyle.justifyContent = scrolled ? 'row' : 'column';
     hamburgerStyle.position = scrolled ? 'static' : 'absolute';
-    hamburgerStyle.bottom = scrolled ? undefined : '-30px';
+    hamburgerStyle.bottom = scrolled ? undefined : '0px';
     linkListStyle.maxHeight = showLinks ? '100vh' : '0';
   
     return (
