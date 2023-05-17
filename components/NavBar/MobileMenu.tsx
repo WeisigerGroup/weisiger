@@ -43,7 +43,23 @@ export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: Mobi
   const linkListStyle: CSSProperties = {
     ...baseLinkListStyle,
     maxHeight: isOpen ? '100vh' : '0',
+    width: '100%',
+    height: '100vh',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    zIndex: 1000, 
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '1rem',
+    boxSizing: 'border-box',
+    overflowY: 'auto',
+    transition: 'max-height 0.3s ease-in-out',
   };
+  
 
   return (
     <div style={containerStyle}>
