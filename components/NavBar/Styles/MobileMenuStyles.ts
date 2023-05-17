@@ -1,8 +1,7 @@
-import { CSSProperties } from 'react';
+import { useState, CSSProperties } from 'react';
 
 export const linkListStyle: CSSProperties = {
   listStyle: 'none',
-  maxHeight: '0',
   overflow: 'hidden',
   transition: 'max-height 0.5s ease-in-out',
 };

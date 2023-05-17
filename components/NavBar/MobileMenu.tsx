@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { useState } from 'react';
 import DehazeOutlined from '@mui/icons-material/DehazeOutlined';
 import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import { 
@@ -45,16 +45,18 @@ type Link = {
             <DehazeOutlined />
           )}
         </div>
-        <ul style={linkListStyle}>
-          {links?.map((link, i) => (
-            <li key={i}>
-              {link.link && <a 
-                style={i === hoveredLink ? linksHoverStyle : linksStyle} 
-                onMouseEnter={() => setHoveredLink(i)}
-                onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
-            </li>
-          ))}
-        </ul>
+        {showLinks && (
+      <ul style={linkListStyle}>
+        {links?.map((link, i) => (
+          <li key={i}>
+            {link.link && <a 
+              style={i === hoveredLink ? linksHoverStyle : linksStyle} 
+              onMouseEnter={() => setHoveredLink(i)}
+              onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
+          </li>
+        ))}
+      </ul>
+    )}
       </div>
     );
   }
