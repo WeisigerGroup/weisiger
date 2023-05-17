@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties } from "react";
 
 export const navbarStyle: CSSProperties = {
   position: 'fixed',
@@ -9,7 +9,6 @@ export const navbarStyle: CSSProperties = {
   boxShadow: '0px 1px 5px',
   display: 'flex',
   justifyContent: 'center',
-  padding: '0',
   transition: 'all 0.4s',
   zIndex: 1000,
   width: '100%',
@@ -18,7 +17,6 @@ export const navbarStyle: CSSProperties = {
 export const containerStyle: CSSProperties = {
   maxWidth: '1100px',
   display: 'flex',
-  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
@@ -26,9 +24,6 @@ export const containerStyle: CSSProperties = {
 };
 
 export const logoStyle: CSSProperties = {
-  padding: '10px',
-  maxHeight: '1200px',
-  maxWidth: '120px',
   transition: 'all 0.4s',
 };
 

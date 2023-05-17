@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import {
   navbarStyle, 
@@ -11,18 +11,23 @@ import {
 } from './Styles/NavBarStyles';
 import MobileMenu from './MobileMenu';
 
-type Props = {
-  img?: {url:string}
-  imgAlt?: string
-  imgLink?: {href:string}
-  links?: {text?:string; link?:{href:string}}[]
-  className?:string
-  color?:string
+type LinkType = {
+  text?:string; 
+  link?:{href:string};
 }
 
-export default function Navbar({ img, imgAlt, imgLink, links, className, color }:Props) {
+type Props = {
+  img?: {url:string};
+  imgAlt?: string;
+  imgLink?: {href:string};
+  links?: LinkType[];
+  className?:string;
+  color?:string;
+}
+
+const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, color }) => {
   const [scrolled, setScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(-1);
 
@@ -36,9 +41,6 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Call handleResize once when the component mounts
-    handleResize();
-
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
 
@@ -46,32 +48,31 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
-}, []);
+  }, []);
 
-    // Update styles based on state
-    navbarStyle.padding = scrolled ? '10px 0' : '0';
-    logoStyle.padding = scrolled ? '10px' : '10px';
-    logoStyle.maxHeight = scrolled ? '80px' : '120px';
-    logoStyle.maxWidth = scrolled ? '80px' : '120px';
+  const updatedContainerStyle = {
+    ...containerStyle,
+    flexDirection: (isMobile || scrolled ? 'row' : 'column') as 'row' | 'column',
+    justifyContent: (isMobile || scrolled ? 'space-between' : 'center') as 'space-between' | 'center',
+  };
+  
 
-    if (isMobile) {
-      containerStyle.flexDirection = 'column';
-      containerStyle.justifyContent = 'center';
-    } else {
-      containerStyle.flexDirection = scrolled ? 'row' : 'column';
-      containerStyle.justifyContent = scrolled ? 'space-between' : 'center';
-    }
-
+  const updatedLogoStyle = {
+    ...logoStyle,
+    padding: scrolled? '10px': '10px',
+    maxHeight: scrolled ? '80px' : '120px',
+    maxWidth: scrolled ? '80px' : '120px',
+  };
 
   return (
     <nav className={className} style={navbarStyle}>
-      <div style={containerStyle}>
+      <div style={updatedContainerStyle}>
         {imgLink && <a {...imgLink}>
-        {img && imgAlt && <Image style={logoStyle} src={img.url} alt={imgAlt} />}
+        {img && imgAlt && <Image style={updatedLogoStyle} src={img.url} alt={imgAlt} />}
         </a>}
         {isMobile ? 
           <MobileMenu links={links} isOpen={mobileMenuOpen} toggleMenu={setMobileMenuOpen} scrolled={scrolled} /> :
-          <div style={linksStyle as CSSProperties} color={color}>
+          <ul style={linksStyle}>
             {links?.map((link, i) => (
               <li key={i} style={linkListItemStyle}>
                 {link.link && <a 
@@ -80,9 +81,11 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
               onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
               </li>
             ))}
-          </div>
+          </ul>
         }
       </div>
     </nav>
   );
 }
+
+export default Navbar;
