@@ -1,5 +1,12 @@
 import React, { useState, CSSProperties } from 'react';
 import { CloseOutlined, DehazeOutlined } from '@mui/icons-material';
+import { 
+  linkListStyle, 
+  linksStyle, 
+  linksHoverStyle, 
+  containerStyle, 
+  hamburgerStyle 
+} from './Styles/MobileMenuStyles';
 
 type Link = {
     text?:string;
@@ -16,63 +23,37 @@ type Link = {
   export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: MobileMenuProps) {
     const [showLinks, setShowLinks] = useState(false);
     const [hoveredLink, setHoveredLink] = useState(-1);
-
+  
     const handleMenuClick = () => {
       setShowLinks(!showLinks);
     };
   
-    const linkListStyle: CSSProperties = {
-      listStyle: 'none',
-      maxHeight: showLinks ? '100vh' : '0',
-      overflow: 'hidden',
-      transition: 'max-height 0.5s ease-in-out',
-    };
+    // Update styles based on state
+    containerStyle.justifyContent = scrolled ? 'flex-end' : 'center';
+    hamburgerStyle.position = scrolled ? 'static' : 'absolute';
+    hamburgerStyle.bottom = scrolled ? undefined : '-30px';
+    linkListStyle.maxHeight = showLinks ? '100vh' : '0';
   
-    const linksStyle: CSSProperties = {
-      textDecoration: 'none',
-      color: '#63666a',
-      padding:'5px 5px 5px 5px',
-      cursor: 'pointer'
-    };
-
-    const linksHoverStyle: CSSProperties = {
-        ...linksStyle,
-        color: '#6BA4B8'
-      };
-  
-      const containerStyle: CSSProperties = {
-        display: 'flex',
-        justifyContent: scrolled ? 'flex-end' : 'center',
-        position: 'relative',  
-      };
-    
-      const hamburgerStyle: CSSProperties = {
-        cursor: 'pointer',
-        padding: '0',
-        position: scrolled ? 'static' : 'absolute',
-        bottom: scrolled ? undefined : '-30px',  
-      };
-
-      return (
-        <div style={containerStyle}>
-          <div style={hamburgerStyle} onClick={handleMenuClick}>
-            {/* Conditionally render 'X' or hamburger icon */}
-            {showLinks ? (
-              <CloseOutlined /> 
-            ) : (
-              <DehazeOutlined />
-            )}
-          </div>
-          <ul style={linkListStyle}>
-            {links?.map((link, i) => (
-              <li key={i}>
-                {link.link && <a 
-                  style={i === hoveredLink ? linksHoverStyle : linksStyle} 
-                  onMouseEnter={() => setHoveredLink(i)}
-                  onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
-              </li>
-            ))}
-          </ul>
+    return (
+      <div style={containerStyle}>
+        <div style={hamburgerStyle} onClick={handleMenuClick}>
+          {/* Conditionally render 'X' or hamburger icon */}
+          {showLinks ? (
+            <CloseOutlined /> 
+          ) : (
+            <DehazeOutlined />
+          )}
         </div>
-      );
-}
+        <ul style={linkListStyle}>
+          {links?.map((link, i) => (
+            <li key={i}>
+              {link.link && <a 
+                style={i === hoveredLink ? linksHoverStyle : linksStyle} 
+                onMouseEnter={() => setHoveredLink(i)}
+                onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }

@@ -1,5 +1,14 @@
 import React, { CSSProperties, useState, useEffect } from 'react';
 import Image from 'next/image';
+import {
+  navbarStyle, 
+  containerStyle, 
+  logoStyle, 
+  linksStyle, 
+  linkListItemStyle, 
+  linkStyle, 
+  linksHoverStyle
+} from './Styles/NavBarStyles';
 import MobileMenu from './MobileMenu';
 
 type Props = {
@@ -36,58 +45,13 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     };
   }, []);
 
-  const navbarStyle: CSSProperties = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    boxShadow: '0px 1px 5px',
-    display: 'flex',
-    justifyContent: 'center',
-    padding: scrolled ? '10px 0' : '0',
-    transition: 'all 0.4s',
-    zIndex: 1000,
-    width: '100%', 
-  };
-
-  const containerStyle: CSSProperties = {
-    maxWidth: '1100px',
-    display: 'flex',
-    flexDirection: isMobile ? 'column' : (scrolled ? 'row' : 'column'),
-    alignItems: 'center',
-    justifyContent: scrolled || isMobile ? 'space-between' : 'center',
-    width: '100%',
-    position: 'relative'
-  };
-
-  const logoStyle: CSSProperties = {
-    padding: scrolled? '10px': '10px',
-    maxHeight: scrolled ? '80px' : '1200px',
-    maxWidth: scrolled ? '80px' : '120px',
-    transition: 'all 0.4s',
-  };
-
-  const linksStyle: CSSProperties = {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center'
-  };
-
-  const linkListItemStyle: CSSProperties = {
-    listStyle: 'none',
-    padding: '10px 10px 20px 10px'
-  };
-
-  const linkStyle: CSSProperties = {
-    cursor: 'pointer',
-    color: "#63666a",
-    textDecoration: 'none'
-  };
-  const linksHoverStyle: CSSProperties = {
-    ...linkStyle,
-    color: '#6BA4B8'
-  };
+  // Update styles based on state
+  navbarStyle.padding = scrolled ? '10px 0' : '0';
+  containerStyle.flexDirection = isMobile ? 'column' : (scrolled ? 'row' : 'column');
+  containerStyle.justifyContent = scrolled || isMobile ? 'space-between' : 'center';
+  logoStyle.padding = scrolled ? '10px' : '10px';
+  logoStyle.maxHeight = scrolled ? '80px' : '120px';
+  logoStyle.maxWidth = scrolled ? '80px' : '120px';
 
   return (
     <nav className={className} style={navbarStyle}>
