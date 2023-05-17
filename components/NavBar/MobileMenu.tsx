@@ -1,5 +1,6 @@
 import React, { useState, CSSProperties } from 'react';
-import  Icon from '@mui/material/Icon';
+import CloseOutlined from '@mui/icons-material/CloseOutlined';
+import DehazeOutlined from '@mui/icons-material/DehazeOutlined';
 
 type Link = {
     text?:string;
@@ -53,17 +54,13 @@ type Link = {
   return (
     <div>
       <div style={hamburgerStyle} onClick={handleMenuClick}>
-        {/* Conditionally render 'X' or hamburger icon */}
-        {showLinks ? (
-          <Icon>close_outlined</Icon> 
-        ) : (
-          <>
-            <div>
-                <Icon>dehazed_outlined</Icon>
-            </div>
-          </>
-        )}
-      </div>
+      {/* Conditionally render 'X' or hamburger icon */}
+      {showLinks ? (
+        <CloseOutlined /> 
+      ) : (
+        <DehazeOutlined />
+      )}
+    </div>
       <ul style={linkListStyle}>
         {links?.map((link, i) => (
           <li key={i}>
