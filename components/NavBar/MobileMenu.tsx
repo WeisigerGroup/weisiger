@@ -1,5 +1,6 @@
 import React, { useState, CSSProperties } from 'react';
-import { CloseOutlined, DehazeOutlined } from '@mui/icons-material';
+import DehazeOutlined from '@mui/icons-material/DehazeOutlined';
+import CloseOutlined from '@mui/icons-material/CloseOutlined';
 import { 
   linkListStyle, 
   linksStyle, 
