@@ -75,7 +75,7 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
 
   const linkListItemStyle: CSSProperties = {
     listStyle: 'none',
-    padding: '0 10px 30px 10px'
+    padding: '10px 10px 20px 10px'
   };
 
   const linkStyle: CSSProperties = {
