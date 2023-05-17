@@ -48,13 +48,14 @@ export default function Navbar({ img, imgAlt, imgLink, links, className, color }
     };
 }, []);
 
-  // Update styles based on state
-  navbarStyle.padding = scrolled ? '10px 0' : '0';
-  containerStyle.flexDirection = scrolled ? 'row' : 'column';
-  containerStyle.justifyContent = scrolled || isMobile ? 'space-between' : 'center';
-  logoStyle.padding = scrolled ? '10px' : '10px';
-  logoStyle.maxHeight = scrolled ? '80px' : '120px';
-  logoStyle.maxWidth = scrolled ? '80px' : '120px';
+    // Update styles based on state
+    navbarStyle.padding = scrolled ? '10px 0' : '0';
+    containerStyle.flexDirection = (isMobile || !scrolled) ? 'column' : 'row';
+    containerStyle.justifyContent = scrolled || isMobile ? 'space-between' : 'center';
+    logoStyle.padding = scrolled ? '10px' : '10px';
+    logoStyle.maxHeight = scrolled ? '80px' : '120px';
+    logoStyle.maxWidth = scrolled ? '80px' : '120px';
+
 
   return (
     <nav className={className} style={navbarStyle}>
