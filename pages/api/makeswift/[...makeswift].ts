@@ -3,7 +3,7 @@ import { MakeswiftApiHandler } from '@makeswift/runtime/next'
 export default MakeswiftApiHandler(process.env.MAKESWIFT_SITE_API_KEY!, {
     getFonts: () => [
         {
-            family: 'korolev',
+            family: 'Korolev',
             variants: [
                 {weight:'300', style: 'italic'},
                 {weight:'300', style: 'normal'},
@@ -14,7 +14,7 @@ export default MakeswiftApiHandler(process.env.MAKESWIFT_SITE_API_KEY!, {
                 ]
         },
         {
-            family: 'franklin-gothic-urw',
+            family: 'Franklin Gothic URW',
             variants: [
                 {style: 'normal', weight:'300'},
                 {style: 'normal', weight:'400'},
