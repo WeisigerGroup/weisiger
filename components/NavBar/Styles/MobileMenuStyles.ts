@@ -28,5 +28,5 @@ export const hamburgerStyle: CSSProperties = {
   cursor: 'pointer',
   padding: '10px',
   position: 'absolute',
-  bottom: '-20px',
+  bottom: '20px',
 };

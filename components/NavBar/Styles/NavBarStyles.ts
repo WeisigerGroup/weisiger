@@ -24,6 +24,7 @@ export const containerStyle: CSSProperties = {
 };
 
 export const logoStyle: CSSProperties = {
+  padding: '10px, 0px, 0px, 0px',
   transition: 'all 0.4s',
 };
 
@@ -35,7 +36,7 @@ export const linksStyle: CSSProperties = {
 
 export const linkListItemStyle: CSSProperties = {
   listStyle: 'none',
-  padding: '10px 10px 20px 10px'
+  padding: '0px 10px 20px 10px'
 };
 
 export const linkStyle: CSSProperties = {
