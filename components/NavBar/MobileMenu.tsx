@@ -47,7 +47,7 @@ export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: Mobi
     width: '100%',
     height: '100vh',
     position: 'fixed',
-    top: scrolled ? '50px': '80px',
+    top: scrolled ? '50px': '122px',
     left: 0,
     backgroundColor: 'rgba(255, 255, 255, 0.95)',
     zIndex: 1000, 
