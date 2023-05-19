@@ -12,6 +12,7 @@ export const navbarStyle: CSSProperties = {
   transition: 'all 0.4s',
   zIndex: 1000,
   width: '100%',
+  paddingBottom: '10px'
 };
 
 export const containerStyle: CSSProperties = {
