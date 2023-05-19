@@ -14,7 +14,7 @@ export default MakeswiftApiHandler(process.env.MAKESWIFT_SITE_API_KEY!, {
                 ]
         },
         {
-            family: 'Franklin Gothic URW',
+            family: 'Franklin Gothic',
             variants: [
                 {style: 'normal', weight:'300'},
                 {style: 'normal', weight:'400'},
