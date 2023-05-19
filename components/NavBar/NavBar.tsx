@@ -53,6 +53,7 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, color
   const updatedContainerStyle = {
     ...containerStyle,
     top: scrolled ? '0': '20px',
+    bottom: scrolled ? '0' : '10px',
     flexDirection: (isMobile || scrolled ? 'row' : 'column') as 'row' | 'column',
     justifyContent: (isMobile || scrolled ? 'space-between' : 'center') as 'space-between' | 'center',
   };
