@@ -9,7 +9,7 @@ export const linkListStyle: CSSProperties = {
 export const linksStyle: CSSProperties = {
   textDecoration: 'none',
   color: '#63666a',
-  padding: '5px 5px 5px 5px',
+  padding: '20px',
   cursor: 'pointer'
 };
 
