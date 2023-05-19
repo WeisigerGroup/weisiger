@@ -59,7 +59,7 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, color
 
   const updatedLogoStyle = {
     ...logoStyle,
-    top: scrolled ? '10px' : '20px',
+    top: scrolled ? '10px' : '30px',
     padding: scrolled ? '10px': '10px',
     maxHeight: scrolled ? '80px' : '120px',
     maxWidth: scrolled ? '80px' : '120px',
