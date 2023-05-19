@@ -58,6 +58,10 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, color
     justifyContent: (isMobile || scrolled ? 'space-between' : 'center') as 'space-between' | 'center',
   };
   
+  const updatedNavbarStyle = {
+    ...navbarStyle,
+    paddingBottom: scrolled ? '0' : '20px'
+  };
 
   const updatedLogoStyle = {
     ...logoStyle,
@@ -68,7 +72,7 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, color
   };
 
   return (
-    <nav className={className} style={navbarStyle}>
+    <nav className={className} style={updatedNavbarStyle}>
       <div style={updatedContainerStyle}>
         {imgLink && <a {...imgLink}>
         {img && imgAlt && <Image style={updatedLogoStyle} src={img.url} alt={imgAlt} />}
