@@ -5,6 +5,7 @@ export const navbarStyle: CSSProperties = {
   top: 0,
   left: 0,
   right: 0,
+  bottom: 10,
   backgroundColor: 'rgba(255, 255, 255, 0.95)',
   boxShadow: '0px 1px 5px',
   display: 'flex',
