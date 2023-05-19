@@ -24,7 +24,7 @@ export const containerStyle: CSSProperties = {
 };
 
 export const logoStyle: CSSProperties = {
-  padding: '50px, 0px, 0px, 0px',
+  top: 30,
   transition: 'all 0.4s',
 };
 
