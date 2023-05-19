@@ -20,7 +20,7 @@ export const containerStyle: CSSProperties = {
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
-  position: 'relative'
+  position: 'relative',
 };
 
 export const logoStyle: CSSProperties = {
