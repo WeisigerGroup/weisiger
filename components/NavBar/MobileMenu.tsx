@@ -38,7 +38,7 @@ export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: Mobi
     ...baseHamburgerStyle,
     position: scrolled ? 'static' : 'absolute',
     top: scrolled ? '0' : '-20px',
-    right: scrolled ? '0' : '-20px',
+    right: scrolled ? '0' : '20px',
   };
 
   const linkListStyle: CSSProperties = {
