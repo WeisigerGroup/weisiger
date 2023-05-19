@@ -37,8 +37,8 @@ export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: Mobi
   const hamburgerStyle: CSSProperties = {
     ...baseHamburgerStyle,
     position: scrolled ? 'static' : 'absolute',
-    top: scrolled ? '0' : '20px',
-    right: scrolled ? '0' : 'center',
+    top: scrolled ? '0' : '10px',
+    right: scrolled ? '0' : '10px',
   };
 
   const linkListStyle: CSSProperties = {
