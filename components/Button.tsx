@@ -16,7 +16,6 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
     backgroundColor: isHovered ? hoverColor : backgroundColor,
     color,
     cursor: 'pointer',
-    display: 'flex',
     transition: 'background-color 0.3s',
     border: 'none',
     outline: 'none',
