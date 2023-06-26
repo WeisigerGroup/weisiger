@@ -25,7 +25,7 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
 
 
   return (
-    <button
+    <a
       {...link}
       style={buttonStyle}
       className={className}
@@ -33,6 +33,6 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
       onMouseLeave={() => setIsHovered(false)}
     >
       {linkText}
-    </button>
+    </a>
   );
 }

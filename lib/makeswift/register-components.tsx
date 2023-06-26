@@ -5,6 +5,7 @@ import { MakeswiftComponentType } from '@makeswift/runtime/components'
 import Navbar from '../../components/NavBar/NavBar'
 
 // Register your components here!
+
 /*
 This is the component that changes the standard button out to have a customizable hover color available.
 */
@@ -20,6 +21,7 @@ ReactRuntime.registerComponent(BrandedButton, {
     className: Style({ properties: Style.All }),
   },
 })
+
 /*
 This is the component that changes out the standard navigation to a more dynamic navigation
 */

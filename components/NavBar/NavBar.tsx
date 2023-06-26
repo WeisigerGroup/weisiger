@@ -13,7 +13,10 @@ import MobileMenu from './MobileMenu';
 
 type LinkType = {
   text?:string; 
-  link?:{href:string};
+  link?:{
+    href:string,
+    target?:string
+  };
 }
 
 type Props = {
@@ -23,9 +26,10 @@ type Props = {
   links?: LinkType[];
   className?:string;
   color?:string;
+  onClick?: () => void;
 }
 
-const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, color }) => {
+const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, onClick, color }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -72,7 +76,7 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, color
   };
 
   return (
-    <nav className={className} style={updatedNavbarStyle}>
+    <nav className={className} style={updatedNavbarStyle} onClick={() => console.log('Link clicked!')}>
       <div style={updatedContainerStyle}>
         {imgLink && <a {...imgLink}>
         {img && imgAlt && <Image style={updatedLogoStyle} src={img.url} alt={imgAlt} />}
@@ -82,10 +86,13 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, color
           <ul style={linksStyle}>
             {links?.map((link, i) => (
               <li key={i} style={linkListItemStyle}>
-                {link.link && <a 
+                {link.link && <a href={link.link.href} target={link.link.target}
               style={i === hoveredLink ? linksHoverStyle : linkStyle} 
               onMouseEnter={() => setHoveredLink(i)}
-              onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
+              onMouseLeave={() => setHoveredLink(-1)}
+              onClick={onClick}>
+                {link.text}
+              </a>}
               </li>
             ))}
           </ul>
