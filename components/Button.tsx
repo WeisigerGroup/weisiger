@@ -2,6 +2,7 @@ import { useState } from 'react';
 type Props = {
   link?:{
     href:string,
+    target?: string
   }
   linkText?:string
   backgroundColor?:string
@@ -28,14 +29,16 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
 
   return (
     <button
-      {...link}
       style={buttonStyle}
-      className={className}>
-        <a
+      className={className}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}>
-        {linkText}
-      </a>
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {link && 
+        <a href={link.href} target={link.target}>
+          {linkText}
+        </a>
+      }
     </button>
   );
 }
