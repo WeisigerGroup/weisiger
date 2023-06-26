@@ -18,7 +18,6 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
   const buttonStyle = {
     backgroundColor: isHovered ? hoverColor : backgroundColor,
     color,
-    textdecoration: 'none',
     cursor: 'pointer',
     transition: 'background-color 0.3s',
     border: 'none',
@@ -34,12 +33,12 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
       className={className}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-    >
-      {link && 
+      {...link && 
         <a href={link.href} target={link.target}>
           {linkText}
         </a>
       }
-    </button>
+    />
+      
   );
 }
