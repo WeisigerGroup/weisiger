@@ -23,7 +23,8 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
     border: 'none',
     outline: 'none',
     borderRadius: '3px',
-    padding: '10px'
+    padding: '10px',
+    textdecoration: 'none'
   };
 
 
