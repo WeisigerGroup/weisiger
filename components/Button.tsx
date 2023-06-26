@@ -26,6 +26,10 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
     padding: '10px'
   };
 
+  const linkStyle = {
+    textDecoration: 'none',
+    color: color // set the same color for the link as the button
+  };
 
   return (
     <button
@@ -35,7 +39,7 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
       onMouseLeave={() => setIsHovered(false)}
     >
     {link && 
-      <a href={link.href} target={link.target}>
+      <a href={link.href} target={link.target} style={linkStyle}>
         {linkText}
       </a>
     }
