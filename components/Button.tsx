@@ -18,13 +18,13 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
   const buttonStyle = {
     backgroundColor: isHovered ? hoverColor : backgroundColor,
     color,
+    textdecoration: 'none',
     cursor: 'pointer',
     transition: 'background-color 0.3s',
     border: 'none',
     outline: 'none',
     borderRadius: '3px',
-    padding: '10px',
-    textdecoration: 'none'
+    padding: '10px'
   };
 
 
