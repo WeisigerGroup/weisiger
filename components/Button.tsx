@@ -33,12 +33,13 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
       className={className}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      {...link && 
-        <a href={link.href} target={link.target}>
-          {linkText}
-        </a>
-      }
-    />
+    >
+    {link && 
+      <a href={link.href} target={link.target}>
+        {linkText}
+      </a>
+    }
+    </button>
       
   );
 }
