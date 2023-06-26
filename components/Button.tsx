@@ -2,14 +2,12 @@ import { useState } from 'react';
 type Props = {
   link?:{
     href:string,
-    target:string
   }
   linkText?:string
   backgroundColor?:string
   hoverColor?:string
   color?:string
   className?:string
-  onClick?: () => void
 }
 
 export default function BrandedButton({link, linkText, backgroundColor, color, hoverColor, className
