@@ -1,11 +1,15 @@
 import { useState } from 'react';
 type Props = {
-  link?:{href:string}
+  link?:{
+    href:string,
+    target:string
+  }
   linkText?:string
   backgroundColor?:string
   hoverColor?:string
   color?:string
   className?:string
+  onClick?: () => void
 }
 
 export default function BrandedButton({link, linkText, backgroundColor, color, hoverColor, className
@@ -25,14 +29,15 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
 
 
   return (
-    <a
+    <button
       {...link}
       style={buttonStyle}
-      className={className}
+      className={className}>
+        <a
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {linkText}
-    </a>
+      onMouseLeave={() => setIsHovered(false)}>
+        {linkText}
+      </a>
+    </button>
   );
 }
