@@ -24,7 +24,7 @@ ReactRuntime.registerComponent(BrandedButton, {
 
 /*
 This is the component that changes out the standard navigation to a more dynamic navigation
-*/
+
 ReactRuntime.registerComponent(Navbar, {
   type: MakeswiftComponentType.Navigation,
   label: 'Navigation',
@@ -50,3 +50,4 @@ ReactRuntime.registerComponent(Navbar, {
   },
 })
 
+*/
