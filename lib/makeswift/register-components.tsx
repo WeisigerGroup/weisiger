@@ -3,7 +3,7 @@ import { ReactRuntime } from '@makeswift/runtime/react'
 import  BrandedButton  from '../../components/Button'
 import { MakeswiftComponentType } from '@makeswift/runtime/components'
 import dynamic from "next/dynamic";
-import Navbar from '../../components/NavBar/NavBar'
+import { Navigation } from '../../components/NavBar/Navigation';
 import { forwardNextDynamicRef } from "@makeswift/runtime/next";
 
 // Register your components here!
