@@ -13,6 +13,7 @@ import {
 } from "@makeswift/runtime/controls";
 import { forwardNextDynamicRef } from "@makeswift/runtime/next";
 
+
 ReactRuntime.registerComponent(
   forwardNextDynamicRef((patch) =>
     dynamic(() =>
@@ -30,7 +31,7 @@ ReactRuntime.registerComponent(
       }),
       navWidth: Number({
         label: "Max content width",
-        defaultValue: 1200,
+        defaultValue: 1100,
         suffix: "px",
         selectAll: true,
       }),
