@@ -1,18 +1,25 @@
 import { useState } from 'react';
-type Props = {
-  link?:{
-    href:string,
-    target?: string
-  }
-  linkText?:string
-  backgroundColor?:string
-  hoverColor?:string
-  color?:string
-  className?:string
+
+type LinkType = {
+  href: string;
+  target?: string;
 }
 
-export default function BrandedButton({link, linkText, backgroundColor, color, hoverColor, className
-}:Props) {
+type Props = {
+  link?: LinkType;
+  linkText?: string;
+  backgroundColor?: string;
+  hoverColor?: string;
+  color?: string;
+  className?: string;
+  size?: string;
+  fullWidth?: boolean;
+  children?: React.ReactNode
+}
+
+type BrandedButtonFunctionType = (props: Props) => JSX.Element;
+
+const BrandedButton: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const buttonStyle = {
@@ -28,7 +35,7 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
 
   const linkStyle = {
     textDecoration: 'none',
-    color: color // set the same color for the link as the button
+    color: color
   };
 
   return (
@@ -44,6 +51,9 @@ export default function BrandedButton({link, linkText, backgroundColor, color, h
       </a>
     }
     </button>
-      
   );
 }
+
+export const LinkButton: BrandedButtonFunctionType = BrandedButton;
+
+export default BrandedButton;

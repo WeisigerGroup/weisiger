@@ -17,6 +17,11 @@ type LinkType = {
     href:string,
     target?:string
   };
+  dropdownItems?: Array<{
+    href: string,
+    target?: string,
+    text: string
+  }>;
 }
 
 type Props = {
