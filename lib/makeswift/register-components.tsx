@@ -26,7 +26,7 @@ ReactRuntime.registerComponent(BrandedButton, {
 
 /*
 This is the component that changes out the standard navigation to a more dynamic navigation
-
+*/
 ReactRuntime.registerComponent(forwardNextDynamicRef((patch) =>
 dynamic(() =>
   patch(import("../../components/NavBar/Navigation").then(({ Navigation }) => Navigation))
@@ -120,4 +120,3 @@ props: {
 }
 );
 
-*/
