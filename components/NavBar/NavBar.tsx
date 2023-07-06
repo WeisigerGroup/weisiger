@@ -16,8 +16,7 @@ import clsx from "clsx";
 import {
   navbarStyle, 
   containerStyle, 
-  logoStyle, 
-  linksStyle, 
+  logoStyle,  
   linkListItemStyle, 
   linkStyle, 
   linksHoverStyle
@@ -79,7 +78,7 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, onCli
     };
   }, []);
 
-  const updatedContainerStyle = {
+  const updatedContainerStyle: CSSProperties = {
     ...containerStyle,
     top: scrolled ? '0': '20px',
     bottom: scrolled ? '0' : '10px',
@@ -87,12 +86,12 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, onCli
     justifyContent: (isMobile || scrolled ? 'space-between' : 'center') as 'space-between' | 'center',
   };
   
-  const updatedNavbarStyle = {
+  const updatedNavbarStyle: CSSProperties = {
     ...navbarStyle,
     paddingBottom: scrolled ? '0' : '20px'
   };
 
-  const updatedLogoStyle = {
+  const updatedLogoStyle: CSSProperties = {
     ...logoStyle,
     top: scrolled ? '10px' : '20px',
     padding: scrolled ? '10px': '10px',
@@ -107,80 +106,8 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, onCli
         {img && imgAlt && <Image style={updatedLogoStyle} src={img.url} alt={imgAlt} />}
         </a>}
         {isMobile ? 
-          <MobileMenu links={links} isOpen={mobileMenuOpen} toggleMenu={setMobileMenuOpen} scrolled={scrolled} /> :
-          // <NavigationMenu.List
-          //     className="flex items-center"
-          //     style={ linksStyle }
-          //   >
-          //     {links?.map((link, i) => (
-          //       <NavigationMenu.Item
-          //         key={i}
-          //         className="relative"
-          //         style={ linkListItemStyle }
-          //       >
-          //         {link.subnavLinks.length > 0 ? (
-          //           <NavigationMenu.Trigger asChild>
-          //             <span className="group cursor-pointer flex select-none items-center py-3 outline-none [text-transform:inherit]">
-          //               {link.text}
-          //               <svg
-          //                 viewBox="0 0 8 6"
-          //                 fill="none"
-          //                 className="linear group-data-[state=open]:-rotate-180 ml-2 h-[6px] w-2 stroke-current transition-transform duration-300"
-          //               >
-          //                 <path
-          //                   d="M0 0L4 4L8 0"
-          //                   strokeWidth="2"
-          //                   strokeLinecap="round"
-          //                   strokeLinejoin="round"
-          //                 ></path>
-          //               </svg>
-          //             </span>
-          //           </NavigationMenu.Trigger>
-          //         ) : (
-          //           <NavigationMenu.Link asChild>
-          //             <Link
-          //               href={link.links?.href ?? "#"}
-          //               target={link.links?.target}
-          //               className="group relative select-none py-3 leading-tight outline-none"
-          //             >
-          //               {link.text}
-
-          //               <div
-          //                 className="absolute bottom-1 left-0 h-0.5 w-full origin-bottom-right scale-x-0 transition-transform group-hover:origin-bottom-left group-hover:scale-x-100"
-          //                 style={ linkStyle}
-          //               ></div>
-          //             </Link>
-          //           </NavigationMenu.Link>
-          //         )}
-
-          //         {link.subnavLinks.length > 0 && (
-          //           <NavigationMenu.Content
-          //             className="animate-fadeInAndScale absolute top-full -left-2 min-w-[240px] origin-top rounded-md bg-white py-2 shadow-md ring-1 ring-black/10"
-          //             asChild
-          //           >
-          //             <ul>
-          //               {link.subnavLinks?.map((subnavLink, i) => (
-          //                 <li key={i}>
-          //                   <NavigationMenu.Link asChild>
-          //                     <Link
-          //                       href={subnavLink.link?.href ?? "#"}
-          //                       target={subnavLink.link?.target}
-          //                       className="block cursor-pointer rounded-sm px-4 py-2 text-gray-300 text-md outline-none transition-opacity hover:opacity-50"
-          //                     >
-          //                       {subnavLink.linkText}
-          //                     </Link>
-          //                   </NavigationMenu.Link>
-          //                 </li>
-          //               ))}
-          //             </ul>
-          //           </NavigationMenu.Content>
-          //         )}
-          //       </NavigationMenu.Item>
-          //     ))}
-          //   </NavigationMenu.List>
-          
-         
-          <ul style={linksStyle}>
+          <MobileMenu links={links} isOpen={mobileMenuOpen} toggleMenu={setMobileMenuOpen} scrolled={scrolled} /> :                             
+          <ul style={linkStyle}>
             {links?.map((link, i) => (
               <li key={i} style={linkListItemStyle}>
                 {link.links && <a href={link.links.href} target={link.links.target}
