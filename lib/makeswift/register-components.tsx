@@ -3,7 +3,7 @@ import { ReactRuntime } from '@makeswift/runtime/react'
 import  BrandedButton  from '../../components/Button'
 import { MakeswiftComponentType } from '@makeswift/runtime/components'
 import dynamic from "next/dynamic";
-import { Navigation } from '../../components/NavBar/Navigation';
+import NavBar from '../../components/NavBar/NavBar';
 import { forwardNextDynamicRef } from "@makeswift/runtime/next";
 
 // Register your components here!
@@ -27,11 +27,7 @@ ReactRuntime.registerComponent(BrandedButton, {
 /*
 This is the component that changes out the standard navigation to a more dynamic navigation
 */
-ReactRuntime.registerComponent(forwardNextDynamicRef((patch) =>
-dynamic(() =>
-  patch(import("../../components/NavBar/Navigation").then(({ Navigation }) => Navigation))
-)
-),
+ReactRuntime.registerComponent(NavBar,
 {
 type: MakeswiftComponentType.Navigation,
 label: "Navigation",
