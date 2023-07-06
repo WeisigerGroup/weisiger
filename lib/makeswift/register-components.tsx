@@ -43,7 +43,7 @@ props: {
     suffix: "px",
     selectAll: true,
   }),
-  logoImage: Image({
+  img: Image({
     label: "Logo",
     format: Image.Format.WithDimensions,
   }),
@@ -53,12 +53,12 @@ props: {
     suffix: "px",
     selectAll: true,
   }),
-  logoAlt: TextInput({
+  imgAlt: TextInput({
     label: "Logo alt text",
     defaultValue: "Logo",
     selectAll: true,
   }),
-  logoLink: Link({ label: "Logo on click" }),
+  imgLink: Link({ label: "Logo on click" }),
   links: List({
     label: "Main links",
     type: Shape({
@@ -91,7 +91,7 @@ props: {
       return links?.text || "Link";
     },
   }),
-  linkColor: Color({
+  color: Color({
     label: "Link color",
     defaultValue: "#000000",
   }),
