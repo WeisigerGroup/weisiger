@@ -1,4 +1,4 @@
-import { useState, CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 
 export const linkListStyle: CSSProperties = {
   listStyle: 'none',

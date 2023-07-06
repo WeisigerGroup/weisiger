@@ -18,6 +18,7 @@ import {
   containerStyle, 
   logoStyle,  
   linkListItemStyle, 
+  linksStyle,
   linkStyle, 
   linksHoverStyle
 } from './Styles/NavBarStyles';
@@ -37,7 +38,7 @@ type LinkType = {
     href: string;
     target?: "_self" | "_blank";
   };
-  subnavLinks: SubnavLink[];
+  // subnavLinks: SubnavLink[];
 }
 
 type Props = {
@@ -107,7 +108,7 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, className, onCli
         </a>}
         {isMobile ? 
           <MobileMenu links={links} isOpen={mobileMenuOpen} toggleMenu={setMobileMenuOpen} scrolled={scrolled} /> :                             
-          <ul style={linkStyle}>
+          <ul style={linksStyle}>
             {links?.map((link, i) => (
               <li key={i} style={linkListItemStyle}>
                 {link.links && <a href={link.links.href} target={link.links.target}
