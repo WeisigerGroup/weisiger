@@ -76,5 +76,6 @@ ReactRuntime.registerComponent(Navbar, {
     }),
     backgroundColor: Color({ label: "Color", defaultValue: "white" }),
     color: Color({ label: "Text color", defaultValue: "black" }),
+    className: Style({ properties: [Style.TextStyle] }),
   },
 })

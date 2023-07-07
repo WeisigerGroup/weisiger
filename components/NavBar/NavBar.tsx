@@ -36,7 +36,14 @@ type Props = {
   onClick?: () => void
 }
 
-const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, onClick }) => {
+const Navbar: React.FC<Props> = ({
+  img,
+  imgAlt,
+  imgLink,
+  links,
+  onClick,
+  className,
+}) => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -57,7 +64,8 @@ const Navbar: React.FC<Props> = ({ img, imgAlt, imgLink, links, onClick }) => {
     <div
       className={classNames(
         "w-full",
-        scrolled ? "h-[80px] md:h-[80px]" : "h-[80px] md:h-[160px]"
+        scrolled ? "h-[80px] md:h-[80px]" : "h-[80px] md:h-[160px]",
+        className
       )}
     >
       <nav
