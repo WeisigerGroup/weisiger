@@ -13,6 +13,11 @@ export const linksStyle: CSSProperties = {
   cursor: 'pointer'
 };
 
+export const mobileListItemStyle: CSSProperties = {
+  listStyle: 'none',
+  padding: '10px 10px 0px 10px'
+};
+
 export const linksHoverStyle: CSSProperties = {
   ...linksStyle,
   color: '#6BA4B8'

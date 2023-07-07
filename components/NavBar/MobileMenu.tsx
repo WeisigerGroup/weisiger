@@ -19,12 +19,25 @@ import {
   linksStyle, 
   linksHoverStyle, 
   containerStyle as baseContainerStyle, 
-  hamburgerStyle as baseHamburgerStyle
+  hamburgerStyle as baseHamburgerStyle,
+  mobileListItemStyle
 } from './Styles/MobileMenuStyles';
+
+type SubnavLink = {
+  linkText?: string;
+  link?: {
+    href: string;
+    target?: string;
+  };
+};
 
 type Link = {
   text?: string;
-  link?: { href: string }
+  link?: { 
+    href: string,
+    target?: string
+  };
+  subnavLinks?: SubnavLink[];
 };
 
 type MobileMenuProps = {
@@ -36,6 +49,7 @@ type MobileMenuProps = {
 
 export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: MobileMenuProps) {
   const [hoveredLink, setHoveredLink] = useState(-1);
+  const linkColor = "#000";
 
   const handleMenuClick = () => {
     toggleMenu(!isOpen);
@@ -73,12 +87,10 @@ export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: Mobi
     overflowY: 'auto',
     transition: 'max-height 0.3s ease-in-out',
   };
-  
 
   return (
     <div style={containerStyle}>
       <div style={hamburgerStyle} onClick={handleMenuClick}>
-        {/* Conditionally render 'X' or hamburger icon */}
         {isOpen ? (
           <CloseOutlined />
         ) : (
@@ -86,16 +98,61 @@ export default function MobileMenu({ links, isOpen, toggleMenu, scrolled }: Mobi
         )}
       </div>
       {isOpen && (
-        <ul style={linkListStyle}>
+        <Accordion.Root type="multiple" style={linkListStyle}>
           {links?.map((link, i) => (
-            <li key={i}>
-              {link.link && <a
-                style={i === hoveredLink ? linksHoverStyle : linksStyle}
-                onMouseEnter={() => setHoveredLink(i)}
-                onMouseLeave={() => setHoveredLink(-1)}>{link.text}</a>}
-            </li>
+            link.subnavLinks && (link.subnavLinks.length > 0) ? (
+              <Accordion.Item
+                value={"item" + i}
+                key={i}
+                className="px-4 py-4 border-b border-black/15"
+                style={{ color: linkColor }}
+              >
+                <Accordion.Trigger asChild>
+                  <span className="group flex w-full items-center justify-between text-base outline-none">
+                    {link.text}
+                    <svg
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      className="linear group-data-[state=open]:-rotate-180 ml-2 h-2 w-3 stroke-current transition-transform duration-250"
+                    >
+                      <path
+                        d="M0 0L6 6L12 0"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                  </span>
+                </Accordion.Trigger>
+                <Accordion.Content asChild>
+                  <ul className="w-full overflow-hidden data-[state=closed]:animate-accordionSlideUp data-[state=open]:animate-accordionSlideDown">
+                    {link.subnavLinks?.map((subnavLink, j) => (
+                      <li key={j} className="w-full first:mt-3">
+                        <Link
+                          href={subnavLink.link?.href ?? "#"}
+                          target={subnavLink.link?.target}
+                          className="block w-full cursor-pointer items-center py-2.5 outline-none"
+                        >
+                          {subnavLink.linkText}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </Accordion.Content>
+              </Accordion.Item>
+            ) : (
+              <li key={i} style={mobileListItemStyle}>
+                {link.link && <Link href={link.link.href} target={link.link.target}
+                  style={i === hoveredLink ? linksHoverStyle : linksStyle}
+                  onMouseEnter={() => setHoveredLink(i)}
+                  onMouseLeave={() => setHoveredLink(-1)}>
+                  {link.text}
+                  </Link>
+                }
+              </li>
+            )
           ))}
-        </ul>
+        </Accordion.Root>
       )}
     </div>
   );

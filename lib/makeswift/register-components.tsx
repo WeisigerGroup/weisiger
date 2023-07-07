@@ -35,10 +35,30 @@ ReactRuntime.registerComponent(Navbar, {
     links: List({
       label: 'Navigation links',
       type: Shape({
-          type: {
-              text: TextInput({ label: 'Text', defaultValue: 'Link', selectAll: true }),
-              link: Link({ label: 'On click' })
-          }
+        type: {
+          text: TextInput({
+            label: "Text",
+            defaultValue: "Link",
+            selectAll: true,
+          }),
+          link: Link({ label: "On click (disabled with subnav)" }),
+          subnavLinks: List({
+            label: "Subnav links",
+            type: Shape({
+              type: {
+                link: Link({ label: "On click" }),
+                linkText: TextInput({
+                  label: "Text",
+                  defaultValue: "Link",
+                  selectAll: true,
+                }),
+              },
+            }),
+            getItemLabel(subnavLink) {
+              return subnavLink?.linkText || "Link";
+            },
+          }),
+        },
       }),
       getItemLabel(link) {
           return link?.text || 'Link'
