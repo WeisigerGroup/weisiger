@@ -1,16 +1,10 @@
 import React, { CSSProperties, useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import classNames from "classnames"
 
 import * as NavigationMenu from "@radix-ui/react-navigation-menu"
 
-import {
-  navbarStyle,
-  containerStyle,
-  logoStyle,
-  linkListItemStyle,
-  linksStyle,
-} from "./Styles/NavBarStyles"
 import MobileMenu from "./MobileMenu"
 
 type SubnavLink = {
@@ -36,7 +30,6 @@ type Props = {
   imgLink?: { href: string; target?: string }
   links?: LinkType[]
   className?: string
-  color?: string
   linkColor?: string
   hoverColor?: string
   linkGap?: number
@@ -50,10 +43,8 @@ const Navbar: React.FC<Props> = ({
   links,
   className,
   onClick,
-  color,
 }) => {
   const [scrolled, setScrolled] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -62,55 +53,38 @@ const Navbar: React.FC<Props> = ({
       setScrolled(offset > 50)
     }
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
     window.addEventListener("scroll", handleScroll)
-    window.addEventListener("resize", handleResize)
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("resize", handleResize)
     }
   }, [])
 
-  const updatedContainerStyle: CSSProperties = {
-    ...containerStyle,
-    top: scrolled ? "0" : "20px",
-    bottom: scrolled ? "0" : "10px",
-    flexDirection: (isMobile || scrolled ? "row" : "column") as
-      | "row"
-      | "column",
-    justifyContent: (isMobile || scrolled ? "space-between" : "center") as
-      | "space-between"
-      | "center",
-  }
-
-  const updatedNavbarStyle: CSSProperties = {
-    ...navbarStyle,
-    paddingBottom: scrolled ? "0" : "20px",
-  }
-
-  const updatedLogoStyle: CSSProperties = {
-    top: scrolled ? "10px" : "20px",
-    padding: scrolled ? "10px" : "10px",
-    maxHeight: scrolled ? "80px" : "120px",
-    maxWidth: scrolled ? "80px" : "120px",
-  }
-
   return (
     <nav
-      className={className}
-      style={updatedNavbarStyle}
-      onClick={() => console.log("Link clicked!")}
+      className={classNames(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex justify-center drop-shadow-lg bg-white/90 backdrop-blur-sm",
+        scrolled && "",
+        className
+      )}
     >
-      <div style={updatedContainerStyle}>
+      <div
+        className={classNames(
+          "relative w-full max-w-[1100px] items-center",
+          scrolled
+            ? "flex justify-between"
+            : "flex justify-between md:flex-col md:justify-center"
+        )}
+      >
         <Link href={imgLink?.href ?? "#"} target={imgLink?.target}>
           {img && (
             <Image
-              className="transition-all"
-              style={updatedLogoStyle}
+              className={classNames(
+                "transition-all p-3 max-h-[80px] max-w-[80px] md:max-h-[120px] md:max-w-[120px] aspect-square",
+                scrolled
+                  ? "md:max-h-[80px] md:max-w-[80px]"
+                  : "md:max-h-[120px] md:max-w-[120px]"
+              )}
               src={img.url}
               alt={imgAlt ?? ""}
               width={img.dimensions.width}
@@ -118,18 +92,12 @@ const Navbar: React.FC<Props> = ({
             />
           )}
         </Link>
-        {isMobile ? (
-          <MobileMenu
-            links={links}
-            isOpen={mobileMenuOpen}
-            toggleMenu={setMobileMenuOpen}
-            scrolled={scrolled}
-          />
-        ) : (
+        {/* desktop nav */}
+        <div className="hidden md:block">
           <NavigationMenu.Root delayDuration={0}>
-            <NavigationMenu.List style={linksStyle}>
+            <NavigationMenu.List className="flex items-center">
               {links?.map((link, i) => (
-                <NavigationMenu.Item key={i} style={linkListItemStyle}>
+                <NavigationMenu.Item key={i} className="px-3">
                   {link.subnavLinks.length > 0 ? (
                     <>
                       <NavigationMenu.Trigger asChild>
@@ -187,7 +155,16 @@ const Navbar: React.FC<Props> = ({
               ))}
             </NavigationMenu.List>
           </NavigationMenu.Root>
-        )}
+        </div>
+        {/* mobile nav */}
+        <div className="block md:hidden">
+          <MobileMenu
+            links={links}
+            isOpen={mobileMenuOpen}
+            toggleMenu={setMobileMenuOpen}
+            scrolled={scrolled}
+          />
+        </div>
       </div>
     </nav>
   )
