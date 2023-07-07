@@ -31,9 +31,9 @@ type LinkType = {
 }
 
 type Props = {
-  img?: { url: string }
+  img?: { url: string; dimensions: { width: number; height: number } }
   imgAlt?: string
-  imgLink?: { href: string }
+  imgLink?: { href: string; target?: string }
   links?: LinkType[]
   className?: string
   color?: string
@@ -93,7 +93,6 @@ const Navbar: React.FC<Props> = ({
   }
 
   const updatedLogoStyle: CSSProperties = {
-    ...logoStyle,
     top: scrolled ? "10px" : "20px",
     padding: scrolled ? "10px" : "10px",
     maxHeight: scrolled ? "80px" : "120px",
@@ -107,13 +106,18 @@ const Navbar: React.FC<Props> = ({
       onClick={() => console.log("Link clicked!")}
     >
       <div style={updatedContainerStyle}>
-        {imgLink && (
-          <a {...imgLink}>
-            {img && imgAlt && (
-              <Image style={updatedLogoStyle} src={img.url} alt={imgAlt} />
-            )}
-          </a>
-        )}
+        <Link href={imgLink?.href ?? "#"} target={imgLink?.target}>
+          {img && (
+            <Image
+              className="transition-all"
+              style={updatedLogoStyle}
+              src={img.url}
+              alt={imgAlt ?? ""}
+              width={img.dimensions.width}
+              height={img.dimensions.height}
+            />
+          )}
+        </Link>
         {isMobile ? (
           <MobileMenu
             links={links}
@@ -122,10 +126,7 @@ const Navbar: React.FC<Props> = ({
             scrolled={scrolled}
           />
         ) : (
-          <NavigationMenu.Root
-            className="hidden flex-1 justify-end lg:flex"
-            delayDuration={0}
-          >
+          <NavigationMenu.Root delayDuration={0}>
             <NavigationMenu.List style={linksStyle}>
               {links?.map((link, i) => (
                 <NavigationMenu.Item key={i} style={linkListItemStyle}>
