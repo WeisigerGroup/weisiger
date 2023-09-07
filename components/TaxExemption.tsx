@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type LinkType = {
   href: string;
@@ -24,6 +24,7 @@ declare var vertex: any;
 const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+    useEffect(() => {
     const token = 'access token';
     $.ajax({
           url: "https://auth.vertexsmb.com/identity/connect/token",
@@ -47,6 +48,7 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
       // Handle errors here
       console.error("Failed to fetch token:", error);
     });
+  }, []);
 
   const buttonStyle = {
     backgroundColor: isHovered ? hoverColor : backgroundColor,
