@@ -35,7 +35,7 @@ ReactRuntime.registerComponent(BrandedButton, {
 
 /*
 This is the component for Tax Exemption button out to have a customizable hover color available.
-*/
+
 ReactRuntime.registerComponent(TaxExemption, {
   type: MakeswiftComponentType.Button,
   label: "Branded Button",
@@ -48,6 +48,7 @@ ReactRuntime.registerComponent(TaxExemption, {
     className: Style({ properties: Style.All }),
   },
 })
+*/
 
 /*
 This is the component that changes out the standard navigation to a more dynamic navigation
