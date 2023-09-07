@@ -19,6 +19,8 @@ type Props = {
 
 type BrandedButtonFunctionType = (props: Props) => JSX.Element;
 
+declare var vertex: any;
+
 const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -40,11 +42,11 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
     accessToken: response.access_token,
             action: "CREATE",
     sellerCodes: ['CAROLINA'],
-    }).catch(error => {
+    })
+  }).catch(error => {
       // Handle errors here
       console.error("Failed to fetch token:", error);
     });
-  })
 
   const buttonStyle = {
     backgroundColor: isHovered ? hoverColor : backgroundColor,
