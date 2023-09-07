@@ -13,7 +13,7 @@ import { ReactRuntime } from "@makeswift/runtime/react"
 import BrandedButton from "../../components/Button"
 import { MakeswiftComponentType } from "@makeswift/runtime/components"
 import Navbar from "../../components/NavBar/NavBar"
-import TaxExemption from "../../components/TaxExemption"
+// import TaxExemption from "../../components/TaxExemption"
 
 // Register your components here!
 
