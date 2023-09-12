@@ -30,6 +30,7 @@ const BrandedButton: BrandedButtonFunctionType = ({ link, linkText, backgroundCo
     border: 'none',
     outline: 'none',
     borderRadius: '3px',
+    width: 'auto',
     padding: '10px'
   };
 
@@ -39,18 +40,21 @@ const BrandedButton: BrandedButtonFunctionType = ({ link, linkText, backgroundCo
   };
 
   return (
+    <>
+    {link && 
+      <a href={link.href} target={link.target} style={linkStyle}>
     <button
       style={buttonStyle}
       className={className}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      id="wizard-btn"
     >
-    {link && 
-      <a href={link.href} target={link.target} style={linkStyle}>
         {linkText}
-      </a>
-    }
     </button>
+    </a>
+    }
+    </>
   );
 }
 
