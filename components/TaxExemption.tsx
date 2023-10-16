@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Button } from '../shadcomponents/ui/button';
 import { fetchToken } from '../api/vertex';
 
 type LinkType = {
@@ -99,7 +98,7 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
     <>
       {link && 
         <a href={link.href} target={link.target} style={linkStyle}>
-      <Button
+      <button
         onClick={(e) => e.preventDefault()}
         style={buttonStyle}
         className={className}
@@ -108,7 +107,7 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
         id="wizard-btn"
       >
           {linkText}  
-      </Button>
+      </button>
       </a>
       }
     </>
