@@ -20,6 +20,11 @@ type Props = {
 
 type BrandedButtonFunctionType = (props: Props) => JSX.Element;
 
+declare global {
+  interface Window {
+    vertex: any;
+  }
+} 
 declare const vertex: any;
 
 const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className, size, fullWidth, children }) => {
