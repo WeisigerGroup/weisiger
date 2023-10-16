@@ -13,7 +13,7 @@ import { ReactRuntime } from "@makeswift/runtime/react"
 import BrandedButton from "../../components/Button"
 import { MakeswiftComponentType } from "@makeswift/runtime/components"
 import Navbar from "../../components/NavBar/NavBar"
-// import TaxExemption from "../../components/TaxExemption"
+import TaxExemption from "../../components/TaxExemption"
 
 // Register your components here!
 
@@ -35,20 +35,19 @@ ReactRuntime.registerComponent(BrandedButton, {
 
 /*
 This is the component for Tax Exemption button out to have a customizable hover color available.
-
+*/
 ReactRuntime.registerComponent(TaxExemption, {
-  type: MakeswiftComponentType.Button,
-  label: "Branded Button",
+  type: 'button',
+  label: "#wizard-btn",
   props: {
     linkText: TextInput({ label: "Text", defaultValue: "Enter text..." }),
-    link: Link(),
     backgroundColor: Color({ label: "Color", defaultValue: "black" }),
     color: Color({ label: "Text color", defaultValue: "white" }),
     hoverColor: Color({ label: "Hover color", defaultValue: "white" }),
     className: Style({ properties: Style.All }),
   },
 })
-*/
+
 
 /*
 This is the component that changes out the standard navigation to a more dynamic navigation
