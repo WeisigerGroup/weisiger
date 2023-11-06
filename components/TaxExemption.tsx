@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchToken } from '../api/vertex';
-import { Button } from './ui/button';
+import { fetchToken } from '../pages/api/vertex';
+// import { Button } from './ui/button';
 
 type LinkType = {
   href: string;
@@ -104,7 +104,7 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
     <>
       {link && 
         <a href={link.href} target={link.target} style={linkStyle}>
-      <Button
+      <button
         onClick={(e) => e.preventDefault()}
         style={buttonStyle}
         className={className}
@@ -113,7 +113,7 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
         id="wizard-btn"
       >
           {linkText}  
-      </Button>
+      </button>
       </a>
       }
     </>
