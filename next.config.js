@@ -5,4 +5,4 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = withBundleAnalyzer(withMakeswift(nextConfig))
+module.exports = withMakeswift(nextConfig)
