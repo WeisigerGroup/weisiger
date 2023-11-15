@@ -30,8 +30,69 @@ declare const vertex: any;
 
 const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className, size, fullWidth, children }) => {
   const [isHovered, setIsHovered] = useState(false);
-
+  
   useEffect(() => {
+    // Function to load script and return a promise
+    const loadScript = (src: string): Promise<HTMLScriptElement> => {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = () => resolve(script);
+        script.onerror = () => reject(new Error(`Failed to load script ${src}`));
+        document.body.appendChild(script);
+      });
+    };
+
+    const initializeWizard = (token: string) => {
+      if (vertex && vertex.Wizard) {
+        new vertex.Wizard({
+          domNode: document.getElementById('wizard-btn'),
+          wizardPath: 'https://ccwizard.vertexsmb.com/',
+          accessToken: token,
+          action: "CREATE",
+          sellerCodes: ['000087'],
+        });
+        console.log("vertex.Wizard has been initialized");
+      } else {
+        console.error("vertex.Wizard is not available");
+      }
+    };
+
+    // Load script and fetch token, then initialize wizard
+    Promise.all([
+      loadScript("https://ccwizard.vertexsmb.com/wizard/button.js"),
+      fetchToken()
+    ])
+    .then(([_, tokenResponse]) => {
+      initializeWizard(tokenResponse.access_token);
+      window.addEventListener("message", handleCertificateCreation);
+    })
+    .catch(error => {
+      console.error("Error in script loading or token fetching:", error);
+    });
+
+    const handleCertificateCreation = (event: MessageEvent) => {
+      if (event.data && event.data.type === 'createdCertificates') {
+        for (let i = 0; i < event.data.data.length; i++) {
+          console.log("certificateId=" + event.data.data[i].id);
+          console.log("buyerCode=" + event.data.data[i].buyerCode);
+        }
+      }
+    };
+
+    // Cleanup function
+    return () => {
+      const scriptElement = document.querySelector("script[src='https://ccwizard.vertexsmb.com/wizard/button.js']");
+      if (scriptElement) {
+        document.body.removeChild(scriptElement);
+      }
+      window.removeEventListener("message", handleCertificateCreation);
+    };
+
+  }, []);
+
+  /*useEffect(() => {
     const token: string = 'access token';
     const script = document.createElement('script');
     
@@ -82,7 +143,7 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
       window.removeEventListener("message", handleCertificateCreation);
     };
 
-  }, []);
+  }, []); */
 
   const buttonStyle = {
     backgroundColor: isHovered ? hoverColor : backgroundColor,
