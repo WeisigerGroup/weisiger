@@ -9,6 +9,7 @@ import {
   List,
   Number,
 } from "@makeswift/runtime/controls"
+import ComponentIcon from '@makeswift/runtime'
 import { ReactRuntime } from "@makeswift/runtime/react"
 import BrandedButton from "../../components/Button"
 import { MakeswiftComponentType } from "@makeswift/runtime/components"
@@ -23,7 +24,7 @@ This is the component that changes the standard button out to have a customizabl
 */
 ReactRuntime.registerComponent(BrandedButton, {
   type: MakeswiftComponentType.Button,
-  label: "Branded Button",
+  label: 'Branded Button',
   props: {
     linkText: TextInput({ label: "Text", defaultValue: "Enter text..." }),
     link: Link(),
@@ -39,9 +40,10 @@ This is the component for Tax Exemption button out to have a customizable hover 
 */
 ReactRuntime.registerComponent(TaxExemption, {
   type: 'button',
-  label: "#wizard-btn",
+  label: 'Tax Exemption',
   props: {
     linkText: TextInput({ label: "Text", defaultValue: "Enter text..." }),
+    link: Link(),
     backgroundColor: Color({ label: "Color", defaultValue: "black" }),
     color: Color({ label: "Text color", defaultValue: "white" }),
     hoverColor: Color({ label: "Hover color", defaultValue: "white" }),
