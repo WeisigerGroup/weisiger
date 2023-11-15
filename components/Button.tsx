@@ -48,7 +48,6 @@ const BrandedButton: BrandedButtonFunctionType = ({ link, linkText, backgroundCo
       className={className}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      id="wizard-btn"
     >
         {linkText}
     </button>

@@ -42,7 +42,6 @@ ReactRuntime.registerComponent(TaxExemption, {
   label: "#wizard-btn",
   props: {
     linkText: TextInput({ label: "Text", defaultValue: "Enter text..." }),
-    link: Link(),
     backgroundColor: Color({ label: "Color", defaultValue: "black" }),
     color: Color({ label: "Text color", defaultValue: "white" }),
     hoverColor: Color({ label: "Hover color", defaultValue: "white" }),
