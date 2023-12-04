@@ -51,7 +51,7 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
           wizardPath: 'https://ccwizard.vertexsmb.com/',
           accessToken: token,
           action: "CREATE",
-          sellerCodes: ['000087'],
+          sellerCodes: ['CAROLINA'],
         });
         console.log("vertex.Wizard has been initialized");
       } else {
@@ -91,59 +91,6 @@ const TaxExemption: BrandedButtonFunctionType = ({ link, linkText, backgroundCol
     };
 
   }, []);
-
-  /*useEffect(() => {
-    const token: string = 'access token';
-    const script = document.createElement('script');
-    
-    script.src = "https://ccwizard.vertexsmb.com/wizard/button.js";
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      if (window.vertex) {
-        console.log("vertex is available");
-      } else {
-        console.error("vertex is not available");
-      }
-    };
-
-    const handleCertificateCreation = (event: MessageEvent) => {
-      if (event.data && event.data.type === 'createdCertificates') {
-        for (let i = 0; i < event.data.data.length; i++) {
-          console.log("certificateId=" + event.data.data[i].id);
-          console.log("buyerCode=" + event.data.data[i].buyerCode);
-        }
-      }
-    };
-
-    fetchToken()
-      .then(response => {
-        if (vertex && vertex.Wizard) {
-      new vertex.Wizard({
-          domNode: document.getElementById('wizard-btn'),
-          wizardPath: 'https://ccwizard.vertexsmb.com/',
-          accessToken: response.access_token,
-          action: "CREATE",
-          sellerCodes: ['000087'],
-        });
-        console.log("vertex.Wizard has been initialized");
-        } else {
-      console.error("vertex.Wizard is not available");
-        }
-        window.addEventListener("message", handleCertificateCreation);
-      })
-      .catch(error => {
-        console.error("Failed to fetch token:", error);
-      });
-
-    return () => {
-      document.body.removeChild(script);
-      window.removeEventListener("message", handleCertificateCreation);
-    };
-
-  }, []); */
 
   const buttonStyle = {
     backgroundColor: isHovered ? hoverColor : backgroundColor,
