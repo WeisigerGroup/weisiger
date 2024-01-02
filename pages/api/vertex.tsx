@@ -14,8 +14,8 @@ interface AjaxResponse {
 export const fetchToken = (): Promise<AjaxResponse> => {
 
   const data: AjaxData = {
-    client_id: "943115e883d243e48c359f6599b198ef",
-    client_secret: "0fc0eb81a635420585f2662a71d58b3d",
+    client_id: "b3ab744f94204912b9ce5cbbff8072ef",
+    client_secret: "46825601092f4941b2ee736075802565",
     grant_type: "client_credentials",
     scope: "vtms-internal-api ecw-wizard-api"
   };
