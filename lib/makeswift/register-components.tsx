@@ -16,7 +16,6 @@ import { MakeswiftComponentType } from "@makeswift/runtime/components"
 import Navbar from "../../components/NavBar/NavBar"
 import TaxExemptionCarolina from '../../components/TaxExemptionCarolina'
 import TaxExemptionPower from '../../components/TaxExemptionPower'
-// import { Machines } from "../../components/Machines/Machines"
 
 // Register your components here!
 
@@ -40,7 +39,7 @@ ReactRuntime.registerComponent(BrandedButton, {
 This is the component for Carolina Cat Tax Exemption button out to have a customizable hover color available.
 */
 ReactRuntime.registerComponent(TaxExemptionCarolina, {
-  type: 'button',
+  type: 'link',
   label: 'Tax Exemption - Carolina Cat',
   props: {
     linkText: TextInput({ label: "Text", defaultValue: "Enter text..." }),
