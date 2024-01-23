@@ -47,7 +47,7 @@ const TaxExemptionPower: BrandedButtonFunctionType = ({ link, linkText, backgrou
     const initializeWizard = (token: string) => {
       if (vertex && vertex.Wizard) {
         new vertex.Wizard({
-          domNode: document.getElementById('wizard-btn'),
+          domNode: document.getElementById('power-btn'),
           wizardPath: 'https://ccwizard.vertexsmb.com/',
           accessToken: token,
           action: "CREATE",
@@ -118,7 +118,7 @@ const TaxExemptionPower: BrandedButtonFunctionType = ({ link, linkText, backgrou
         className={className}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        id="wizard-btn"
+        id="power-btn"
       >
           {linkText}  
       </button>
