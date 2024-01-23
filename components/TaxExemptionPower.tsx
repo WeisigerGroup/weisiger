@@ -101,6 +101,7 @@ const TaxExemptionPower: BrandedButtonFunctionType = ({ link, linkText, backgrou
     outline: 'none',
     borderRadius: '3px',
     padding: '10px',
+    align: 'center',
   };
 
   const linkStyle = {

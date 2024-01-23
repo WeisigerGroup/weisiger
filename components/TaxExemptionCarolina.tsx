@@ -101,6 +101,7 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
     outline: 'none',
     borderRadius: '3px',
     padding: '10px',
+    align: 'center',
   };
 
   const linkStyle = {
