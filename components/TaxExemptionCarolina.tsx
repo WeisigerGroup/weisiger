@@ -95,6 +95,7 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
   const buttonStyle = {
     backgroundColor: isHovered ? hoverColor : backgroundColor,
     color,
+    display: 'flex',
     cursor: 'pointer',
     transition: 'background-color 0.3s',
     border: 'none',

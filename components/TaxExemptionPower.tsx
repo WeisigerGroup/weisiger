@@ -95,13 +95,13 @@ const TaxExemptionPower: BrandedButtonFunctionType = ({ link, linkText, backgrou
   const buttonStyle = {
     backgroundColor: isHovered ? hoverColor : backgroundColor,
     color,
+    display: 'flex',
     cursor: 'pointer',
     transition: 'background-color 0.3s',
     border: 'none',
     outline: 'none',
     borderRadius: '3px',
     padding: '10px',
-    align: 'center',
   };
 
   const linkStyle = {
