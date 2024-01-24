@@ -31,7 +31,8 @@ const BrandedButton: BrandedButtonFunctionType = ({ link, linkText, backgroundCo
     border: 'none',
     outline: 'none',
     borderRadius: '3px',
-    padding: '10px'
+    padding: '10px',
+    align: 'center',
   };
 
   const linkStyle = {
