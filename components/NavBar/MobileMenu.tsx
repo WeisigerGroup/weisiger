@@ -37,7 +37,7 @@ export default function MobileMenu({
 }: MobileMenuProps) {
   return (
     <div className={classNames("w-full flex-col justify-center items-center")}>
-      <button className="p-3" onClick={() => toggleMenu(!isOpen)}>
+      <button aria-label="menu" className="p-3" onClick={() => toggleMenu(!isOpen)}>
         {isOpen ? <CloseOutlined /> : <DehazeOutlined />}
       </button>
       {isOpen && (
