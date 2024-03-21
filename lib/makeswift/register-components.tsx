@@ -72,7 +72,7 @@ ReactRuntime.registerComponent(TaxExemptionPower, {
 This is the component for LiftOne Tax Exemption button out to have a customizable hover color available.
 */
 ReactRuntime.registerComponent(TaxExemptionLiftOne, {
-  type: 'link',
+  type: 'link2',
   label: 'Tax Exemption - LiftOne',
   props: {
     linkText: TextInput({ label: "Text", defaultValue: "Enter text..." }),
