@@ -27,8 +27,7 @@ declare global {
   }
 } 
 declare const vertex: any;
-
-const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className, size, fullWidth, children }) => {
+const TaxExemptionLiftOne: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className, size, fullWidth, children }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   useEffect(() => {
@@ -47,11 +46,11 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
     const initializeWizard = (token: string) => {
       if (vertex && vertex.Wizard) {
         new vertex.Wizard({
-          domNode: document.getElementById('construction-btn'), 
+          domNode: document.getElementById('liftone-btn'),
           wizardPath: 'https://ccwizard.vertexsmb.com/',
           accessToken: token,
           action: "CREATE",
-          sellerCodes: ['CAROLINA 1926 LLC'], 
+          sellerCodes: ['CAROLINA 1926 LLC'], //Change Seller Code to New LiftOne code
         });
         console.log("vertex.Wizard has been initialized");
       } else {
@@ -120,7 +119,7 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
         className={className}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        id="construction-btn" 
+        id="liftone-btn"
       >
           {linkText}  
       </button>
@@ -130,5 +129,5 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
   );
 }
 
-export const LinkButton: BrandedButtonFunctionType = TaxExemptionCarolina; 
-export default TaxExemptionCarolina; 
+export const LinkButton: BrandedButtonFunctionType = TaxExemptionLiftOne;
+export default TaxExemptionLiftOne;
