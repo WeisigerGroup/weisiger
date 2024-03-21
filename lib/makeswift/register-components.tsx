@@ -73,7 +73,7 @@ This is the component for LiftOne Tax Exemption button out to have a customizabl
 */
 ReactRuntime.registerComponent(TaxExemptionLiftOne, {
   type: 'link',
-  label: 'Tax Exemption - Carolina Cat',
+  label: 'Tax Exemption - LiftOne',
   props: {
     linkText: TextInput({ label: "Text", defaultValue: "Enter text..." }),
     link: Link(),
