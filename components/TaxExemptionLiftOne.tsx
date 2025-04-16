@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { fetchToken } from '../pages/api/vertex';
-// import { Button } from './ui/button';
 
 type LinkType = {
   href: string;
@@ -25,11 +24,11 @@ declare global {
   interface Window {
     vertex: any;
   }
-} 
+}
 declare const vertex: any;
 const TaxExemptionLiftOne: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className, size, fullWidth, children }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   useEffect(() => {
     // Function to load script and return a promise
     const loadScript = (src: string): Promise<HTMLScriptElement> => {
@@ -50,7 +49,7 @@ const TaxExemptionLiftOne: BrandedButtonFunctionType = ({ link, linkText, backgr
           wizardPath: 'https://ccwizard.vertexsmb.com/',
           accessToken: token,
           action: "CREATE",
-          sellerCodes: ['CAROLINA 1926 LLC'], //Change Seller Code to New LiftOne code
+          sellerCodes: ['LiftOne LLC'], //Change Seller Code to New LiftOne code
         });
         console.log("vertex.Wizard has been initialized");
       } else {
@@ -111,7 +110,7 @@ const TaxExemptionLiftOne: BrandedButtonFunctionType = ({ link, linkText, backgr
 
   return (
     <>
-      {link && 
+      {link &&
         <a href={link.href} target={link.target} style={linkStyle}>
       <button
         onClick={(e) => e.preventDefault()}
@@ -121,7 +120,7 @@ const TaxExemptionLiftOne: BrandedButtonFunctionType = ({ link, linkText, backgr
         onMouseLeave={() => setIsHovered(false)}
         id="liftone-btn"
       >
-          {linkText}  
+          {linkText}
       </button>
       </a>
       }

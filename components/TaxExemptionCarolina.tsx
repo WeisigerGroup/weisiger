@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { fetchToken } from '../pages/api/vertex';
-// import { Button } from './ui/button';
 
 type LinkType = {
   href: string;
@@ -25,12 +24,12 @@ declare global {
   interface Window {
     vertex: any;
   }
-} 
+}
 declare const vertex: any;
 
 const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className, size, fullWidth, children }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   useEffect(() => {
     // Function to load script and return a promise
     const loadScript = (src: string): Promise<HTMLScriptElement> => {
@@ -112,7 +111,7 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
 
   return (
     <>
-      {link && 
+      {link &&
         <a href={link.href} target={link.target} style={linkStyle}>
       <button
         onClick={(e) => e.preventDefault()}
@@ -120,9 +119,9 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
         className={className}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        id="construction-btn" 
+        id="construction-btn"
       >
-          {linkText}  
+          {linkText}
       </button>
       </a>
       }
@@ -130,5 +129,5 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
   );
 }
 
-export const LinkButton: BrandedButtonFunctionType = TaxExemptionCarolina; 
-export default TaxExemptionCarolina; 
+export const LinkButton: BrandedButtonFunctionType = TaxExemptionCarolina;
+export default TaxExemptionCarolina;
