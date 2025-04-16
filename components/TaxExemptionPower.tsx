@@ -25,12 +25,12 @@ declare global {
   interface Window {
     vertex: any;
   }
-} 
+}
 declare const vertex: any;
 
 const TaxExemptionPower: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className, size, fullWidth, children }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   useEffect(() => {
     // Function to load script and return a promise
     const loadScript = (src: string): Promise<HTMLScriptElement> => {
@@ -111,7 +111,7 @@ const TaxExemptionPower: BrandedButtonFunctionType = ({ link, linkText, backgrou
 
   return (
     <>
-      {link && 
+      {link &&
         <a href={link.href} target={link.target} style={linkStyle}>
       <button
         onClick={(e) => e.preventDefault()}
@@ -121,7 +121,7 @@ const TaxExemptionPower: BrandedButtonFunctionType = ({ link, linkText, backgrou
         onMouseLeave={() => setIsHovered(false)}
         id="power-btn"
       >
-          {linkText}  
+          {linkText}
       </button>
       </a>
       }
