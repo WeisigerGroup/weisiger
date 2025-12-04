@@ -6,7 +6,7 @@ import "../styles/globals.css"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ReactRuntimeProvider runtime={runtime} previewMode={pageProps.__makeswift_preview === true}>
+    <ReactRuntimeProvider runtime={runtime}>
       <Component {...pageProps} />
     </ReactRuntimeProvider>
   )
