@@ -1,1 +1,1 @@
-export { Document as default } from '@makeswift/runtime/next/document'
+export { Document as default } from '@makeswift/runtime/next'
