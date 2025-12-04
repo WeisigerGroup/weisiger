@@ -9,7 +9,6 @@ import {
   List,
   Number,
 } from "@makeswift/runtime/controls"
-import ComponentIcon from '@makeswift/runtime'
 import { ReactRuntime } from "@makeswift/runtime/react"
 import BrandedButton from "../../components/Button"
 import { MakeswiftComponentType } from "@makeswift/runtime/components"
@@ -117,14 +116,14 @@ ReactRuntime.registerComponent(Navbar, {
                 }),
               },
             }),
-            getItemLabel(subnavLink ) {
-              return subnavLink?.linkText || "Link"
+            getItemLabel(subnavLink) {
+              return String(subnavLink?.linkText ?? "Link")
             },
           }),
         },
       }),
       getItemLabel(link) {
-        return link?.text || "Link"
+        return String(link?.text ?? "Link")
       },
     }),
     backgroundColor: Color({ label: "Color", defaultValue: "white" }),
