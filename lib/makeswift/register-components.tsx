@@ -9,7 +9,7 @@ import {
   List,
   Number,
 } from "@makeswift/runtime/controls"
-import { ReactRuntime } from "@makeswift/runtime/react"
+import { runtime } from "./runtime"
 import BrandedButton from "../../components/Button"
 import { MakeswiftComponentType } from "@makeswift/runtime/components"
 import Navbar from "../../components/NavBar/NavBar"
@@ -22,7 +22,7 @@ import TaxExemptionLiftOne from '../../components/TaxExemptionLiftOne'
 /*
 This is the component that changes the standard button out to have a customizable hover color available.
 */
-ReactRuntime.registerComponent(BrandedButton, {
+runtime.registerComponent(BrandedButton, {
   type: MakeswiftComponentType.Button,
   label: 'Branded Button',
   props: {
@@ -38,7 +38,7 @@ ReactRuntime.registerComponent(BrandedButton, {
 /*
 This is the component for Carolina Cat Tax Exemption button out to have a customizable hover color available.
 */
-ReactRuntime.registerComponent(TaxExemptionCarolina, {
+runtime.registerComponent(TaxExemptionCarolina, {
   type: 'link',
   label: 'Tax Exemption - Carolina Cat',
   props: {
@@ -54,7 +54,7 @@ ReactRuntime.registerComponent(TaxExemptionCarolina, {
 /*
 This is the component for Power Systems Tax Exemption button out to have a customizable hover color available.
 */
-ReactRuntime.registerComponent(TaxExemptionPower, {
+runtime.registerComponent(TaxExemptionPower, {
   type: 'button',
   label: 'Tax Exemption - Power',
   props: {
@@ -70,7 +70,7 @@ ReactRuntime.registerComponent(TaxExemptionPower, {
 /*
 This is the component for LiftOne Tax Exemption button out to have a customizable hover color available.
 */
-ReactRuntime.registerComponent(TaxExemptionLiftOne, {
+runtime.registerComponent(TaxExemptionLiftOne, {
   type: 'link2',
   label: 'Tax Exemption - LiftOne',
   props: {
@@ -87,7 +87,7 @@ ReactRuntime.registerComponent(TaxExemptionLiftOne, {
 /*
 This is the component that changes out the standard navigation to a more dynamic navigation
 */
-ReactRuntime.registerComponent(Navbar, {
+runtime.registerComponent(Navbar, {
   type: MakeswiftComponentType.Navigation,
   label: "Navigation",
   props: {
