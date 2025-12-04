@@ -36,14 +36,14 @@ type Props = {
   onClick?: () => void
 }
 
-const Navbar: React.FC<Props> = ({
+const Navbar = ({
   img,
   imgAlt,
   imgLink,
   links,
   onClick,
   className,
-}) => {
+}: Props): React.ReactElement => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactElement } from 'react';
 import { fetchToken } from '../pages/api/vertex';
 
 type LinkType = {
@@ -18,7 +18,7 @@ type Props = {
   children?: React.ReactNode
 }
 
-type BrandedButtonFunctionType = (props: Props) => JSX.Element;
+type BrandedButtonFunctionType = (props: Props) => ReactElement;
 
 declare global {
   interface Window {
@@ -46,11 +46,11 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
     const initializeWizard = (token: string) => {
       if (vertex && vertex.Wizard) {
         new vertex.Wizard({
-          domNode: document.getElementById('construction-btn'), 
+          domNode: document.getElementById('construction-btn'),
           wizardPath: 'https://ccwizard.vertexsmb.com/',
           accessToken: token,
           action: "CREATE",
-          sellerCodes: ['CAROLINA 1926 LLC'], 
+          sellerCodes: ['CAROLINA 1926 LLC'],
         });
         console.log("vertex.Wizard has been initialized");
       } else {
@@ -63,13 +63,13 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
       loadScript("https://ccwizard.vertexsmb.com/wizard/button.js"),
       fetchToken()
     ])
-    .then(([_, tokenResponse]) => {
-      initializeWizard(tokenResponse.access_token);
-      window.addEventListener("message", handleCertificateCreation);
-    })
-    .catch(error => {
-      console.error("Error in script loading or token fetching:", error);
-    });
+      .then(([_, tokenResponse]) => {
+        initializeWizard(tokenResponse.access_token);
+        window.addEventListener("message", handleCertificateCreation);
+      })
+      .catch(error => {
+        console.error("Error in script loading or token fetching:", error);
+      });
 
     const handleCertificateCreation = (event: MessageEvent) => {
       if (event.data && event.data.type === 'createdCertificates') {
@@ -113,17 +113,17 @@ const TaxExemptionCarolina: BrandedButtonFunctionType = ({ link, linkText, backg
     <>
       {link &&
         <a href={link.href} target={link.target} style={linkStyle}>
-      <button
-        onClick={(e) => e.preventDefault()}
-        style={buttonStyle}
-        className={className}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        id="construction-btn"
-      >
-          {linkText}
-      </button>
-      </a>
+          <button
+            onClick={(e) => e.preventDefault()}
+            style={buttonStyle}
+            className={className}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            id="construction-btn"
+          >
+            {linkText}
+          </button>
+        </a>
       }
     </>
   );
