@@ -18,7 +18,7 @@ type Props = {
   children?: React.ReactNode
 }
 
-type BrandedButtonFunctionType = (props: Props) => JSX.Element;
+type BrandedButtonFunctionType = (props: Props) => React.ReactElement | null;
 
 const BrandedButton: BrandedButtonFunctionType = ({ link, linkText, backgroundColor, color, hoverColor, className }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -42,18 +42,18 @@ const BrandedButton: BrandedButtonFunctionType = ({ link, linkText, backgroundCo
 
   return (
     <>
-    {link && 
-      <a href={link.href} target={link.target} style={linkStyle}>
-    <button
-      style={buttonStyle}
-      className={className}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-        {linkText}
-    </button>
-    </a>
-    }
+      {link &&
+        <a href={link.href} target={link.target} style={linkStyle}>
+          <button
+            style={buttonStyle}
+            className={className}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {linkText}
+          </button>
+        </a>
+      }
     </>
   );
 }

@@ -18,7 +18,7 @@ type Props = {
   children?: React.ReactNode
 }
 
-type BrandedButtonFunctionType = (props: Props) => JSX.Element;
+type BrandedButtonFunctionType = (props: Props) => React.ReactElement | null;
 
 declare global {
   interface Window {
@@ -62,13 +62,13 @@ const TaxExemptionLiftOne: BrandedButtonFunctionType = ({ link, linkText, backgr
       loadScript("https://ccwizard.vertexsmb.com/wizard/button.js"),
       fetchToken()
     ])
-    .then(([_, tokenResponse]) => {
-      initializeWizard(tokenResponse.access_token);
-      window.addEventListener("message", handleCertificateCreation);
-    })
-    .catch(error => {
-      console.error("Error in script loading or token fetching:", error);
-    });
+      .then(([_, tokenResponse]) => {
+        initializeWizard(tokenResponse.access_token);
+        window.addEventListener("message", handleCertificateCreation);
+      })
+      .catch(error => {
+        console.error("Error in script loading or token fetching:", error);
+      });
 
     const handleCertificateCreation = (event: MessageEvent) => {
       if (event.data && event.data.type === 'createdCertificates') {
@@ -112,17 +112,17 @@ const TaxExemptionLiftOne: BrandedButtonFunctionType = ({ link, linkText, backgr
     <>
       {link &&
         <a href={link.href} target={link.target} style={linkStyle}>
-      <button
-        onClick={(e) => e.preventDefault()}
-        style={buttonStyle}
-        className={className}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        id="liftone-btn"
-      >
-          {linkText}
-      </button>
-      </a>
+          <button
+            onClick={(e) => e.preventDefault()}
+            style={buttonStyle}
+            className={className}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            id="liftone-btn"
+          >
+            {linkText}
+          </button>
+        </a>
       }
     </>
   );

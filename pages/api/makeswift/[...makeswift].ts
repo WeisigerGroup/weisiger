@@ -1,6 +1,8 @@
 import { MakeswiftApiHandler } from '@makeswift/runtime/next/server'
+import { runtime } from '../../../lib/makeswift/runtime'
 
 export default MakeswiftApiHandler(process.env.MAKESWIFT_SITE_API_KEY!, {
+    runtime,
     getFonts: () => [
         {
             family: 'Korolev',
