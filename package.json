@@ -11,7 +11,7 @@
     "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
-    "@makeswift/runtime": "0.20.0",
+    "@makeswift/runtime": "0.24.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.0",
     "@next/bundle-analyzer": "15.5.9",
