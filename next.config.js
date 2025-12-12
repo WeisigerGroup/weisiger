@@ -8,7 +8,7 @@ const nextConfig = {
     return [
       {
         source: '/forced-labor-policy',
-        destination: 'vendor-code-of-conduct',
+        destination: '/vendor-code-of-conduct',
         permanent: true
       }
     ]

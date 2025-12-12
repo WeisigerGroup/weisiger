@@ -31,7 +31,9 @@ export async function getStaticPaths(): Promise<
   }
 }
 
-type Props = MakeswiftPageProps
+type Props = MakeswiftPageProps & {
+  __makeswift_preview?: boolean
+}
 
 export async function getStaticProps(
   ctx: GetStaticPropsContext<ParsedUrlQuery>,
@@ -44,7 +46,12 @@ export async function getStaticProps(
 
   if (snapshot == null) return { notFound: true }
 
-  return { props: { snapshot } }
+  return {
+    props: {
+      snapshot,
+      __makeswift_preview: ctx.preview ?? false,
+    }
+  }
 }
 
 export default function Page({ snapshot }: Props) {
