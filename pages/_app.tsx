@@ -1,3 +1,5 @@
+import "../lib/makeswift/register-components"
+
 import { AppProps } from "next/app"
 import { ReactRuntimeProvider } from "@makeswift/runtime/next"
 import { runtime } from "../lib/makeswift/runtime"
